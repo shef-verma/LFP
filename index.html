@@ -3,16 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexington Food Pantry</title>
+    <title>Lexington Food Pantry | Fighting Hunger in Our Community</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Modern CSS Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --emerald: #2ecc71;
+            --sapphire: #3498db;
+            --sunflower: #f1c40f;
+            --cloud: #ecf0f1;
+            --midnight: #2c3e50;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
         
-        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            color: var(--midnight);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
         }
         
         .container {
@@ -22,16 +42,17 @@
             padding: 0 20px;
         }
         
-        img { max-width: 100%; height: auto; }
-        
-        /* Header Styles */
+        /* Modern Glass Navigation */
         header {
-            background: white;
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
         }
         
         .header-container {
@@ -40,8 +61,25 @@
             align-items: center;
         }
         
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
         .logo img {
-            height: 60px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--emerald);
+        }
+        
+        .logo-text span {
+            color: var(--sapphire);
         }
         
         nav ul {
@@ -51,15 +89,16 @@
         
         nav li {
             margin-left: 30px;
+            position: relative;
         }
         
         nav a {
             text-decoration: none;
-            color: #333;
+            color: var(--midnight);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             position: relative;
-            padding-bottom: 5px;
+            padding: 5px 0;
         }
         
         nav a:after {
@@ -68,256 +107,517 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 3px;
-            background: #4CAF50;
-            transition: width 0.3s;
+            height: 2px;
+            background: var(--emerald);
+            transition: var(--transition);
         }
         
         nav a:hover:after {
             width: 100%;
         }
         
-        /* Hero Section */
+        .nav-cta {
+            background: var(--emerald);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+        
+        .nav-cta:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+        }
+        
+        .nav-cta:after {
+            display: none;
+        }
+        
+        /* Hero Section - Animated Gradient */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), url('images/food-pantry-hero.jpg');
-            background-size: cover;
-            background-position: center;
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.9) 0%, rgba(52, 152, 219, 0.9) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
             color: white;
-            text-align: center;
-            padding: 120px 0;
+            max-width: 700px;
+            animation: fadeInUp 1s ease;
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
+            line-height: 1.2;
             margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
         .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
         }
         
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            border-radius: 4px;
+            padding: 15px 35px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            margin: 0 10px;
-            transition: all 0.3s;
-        }
-        
-        .btn-primary {
-            background: #FFD700;
-            color: #333;
-        }
-        
-        .btn-primary:hover {
-            background: #FFC800;
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background: #2196F3;
-            color: white;
-        }
-        
-        .btn-secondary:hover {
-            background: #0d8bf2;
-            transform: translateY(-2px);
-        }
-        
-        /* Quick Links */
-        .quick-links {
-            padding: 60px 0;
-            background: #f9f9f9;
-        }
-        
-        .quick-links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .quick-link-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .quick-link-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .card-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .card-content {
-            padding: 25px;
-        }
-        
-        .card-content h3 {
-            color: #2E7D32;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            text-align: center;
+            margin-right: 15px;
             margin-bottom: 15px;
         }
         
-        .card-content p {
-            margin-bottom: 20px;
-            color: #666;
+        .btn-primary {
+            background: white;
+            color: var(--emerald);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         }
         
-        .btn-small {
-            display: inline-block;
-            padding: 8px 20px;
-            background: #2E7D32;
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
             color: white;
-            border-radius: 4px;
-            font-size: 0.9rem;
+            border: 2px solid white;
         }
         
-        /* Mission Section */
-        .mission {
+        .btn-secondary:hover {
+            background: white;
+            color: var(--emerald);
+            transform: translateY(-5px);
+        }
+        
+        /* Stats Counter */
+        .stats {
+            background: white;
             padding: 80px 0;
+            position: relative;
+            z-index: 2;
+            margin-top: -50px;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stat-item {
             text-align: center;
+            padding: 20px;
         }
         
-        .mission h2 {
-            color: #2E7D32;
-            margin-bottom: 30px;
-            font-size: 2.2rem;
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--emerald);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
         }
         
-        .mission p {
-            max-width: 800px;
-            margin: 0 auto 30px;
+        .stat-label {
+            color: var(--midnight);
             font-size: 1.1rem;
+            opacity: 0.8;
         }
         
-        /* News Section */
-        .news {
-            padding: 60px 0;
-            background: #f9f9f9;
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--cloud);
         }
         
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         .section-header h2 {
-            color: #2E7D32;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            color: var(--midnight);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
         }
         
-        .news-grid {
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--emerald);
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #7f8c8d;
+        }
+        
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
-        .news-card {
+        .service-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
         }
         
-        .news-image {
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
             height: 200px;
             background-size: cover;
             background-position: center;
         }
         
-        .news-content {
-            padding: 25px;
+        .service-content {
+            padding: 30px;
         }
         
-        .news-date {
-            color: #2196F3;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .news-content h3 {
+        .service-content h3 {
+            font-size: 1.5rem;
             margin-bottom: 15px;
+            color: var(--midnight);
         }
         
-        .read-more {
-            display: inline-block;
-            margin-top: 15px;
-            color: #2E7D32;
-            font-weight: bold;
+        .service-content p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--emerald);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .service-link svg {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .service-link:hover svg {
+            transform: translateX(5px);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat fixed;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        
+        .testimonials:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.9);
+        }
+        
+        .testimonials .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+        }
+        
+        .testimonial-text:before {
+            top: -20px;
+            left: -15px;
+        }
+        
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -15px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--emerald);
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background: var(--emerald);
+            color: white;
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .newsletter-btn {
+            background: var(--midnight);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 50px 50px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .newsletter-btn:hover {
+            background: #1a252f;
         }
         
         /* Footer */
         footer {
-            background: #333;
+            background: var(--midnight);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
         }
         
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
         
-        .footer-column h3 {
-            color: #FFD700;
-            margin-bottom: 25px;
-            font-size: 1.3rem;
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
         }
         
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column a {
-            color: #ddd;
-            text-decoration: none;
-        }
-        
-        .footer-column a:hover {
-            color: white;
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
         }
         
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
         }
         
-        .social-links img {
-            height: 30px;
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--emerald);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--emerald);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
             opacity: 0.8;
-            transition: opacity 0.3s;
         }
         
-        .social-links img:hover {
-            opacity: 1;
+        .footer-contact svg {
+            margin-right: 10px;
+            color: var(--emerald);
+            min-width: 20px;
         }
         
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #444;
-            color: #aaa;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
         }
         
-        /* Mobile Styles */
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -325,148 +625,227 @@
             
             nav ul {
                 margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             nav li {
-                margin-left: 15px;
-                margin-right: 15px;
+                margin: 0 10px 10px;
             }
             
             .hero {
-                padding: 80px 0;
+                min-height: 600px;
+                text-align: center;
             }
             
+            .hero-content {
+                margin: 0 auto;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 50px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 50px;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
             .hero h1 {
                 font-size: 2.2rem;
             }
             
-            .hero p {
-                font-size: 1.1rem;
+            .stats-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
             }
             
-            .cta-buttons {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn {
-                margin: 0;
+            .section-header h2 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Glass Navigation -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="images/lfp-logo.png" alt="Lexington Food Pantry">
+                <img src="https://via.placeholder.com/50x50" alt="Lexington Food Pantry">
+                <div class="logo-text">Lexington<span>Pantry</span></div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="get-help.html">Get Help</a></li>
-                    <li><a href="volunteer.html">Volunteer</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="donate.html">Donate</a></li>
-                    <li><a href="news.html">News</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Get Help</a></li>
+                    <li><a href="#">Programs</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                    <li><a href="#" class="nav-cta">Donate</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Animated Gradient -->
     <section class="hero">
         <div class="container">
-            <h1>Supporting Our Lexington Community</h1>
-            <p>Providing nutritious food and resources to neighbors in need since 1982</p>
-            <div class="cta-buttons">
-                <a href="get-help.html" class="btn btn-primary">Get Food Assistance</a>
-                <a href="donate.html" class="btn btn-secondary">Donate Now</a>
+            <div class="hero-content">
+                <h1>Nourishing Our Community, One Meal at a Time</h1>
+                <p>Lexington Food Pantry provides nutritious food and essential resources to families facing food insecurity in our community.</p>
+                <div>
+                    <a href="#" class="btn btn-primary">Get Assistance</a>
+                    <a href="#" class="btn btn-secondary">Volunteer With Us</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Links -->
-    <section class="quick-links">
+    <!-- Stats Counter -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">1,200+</div>
+                    <div class="stat-label">Families Served Monthly</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">45,000</div>
+                    <div class="stat-label">Meals Provided Annually</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Dedicated Volunteers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Community Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
         <div class="container">
             <div class="section-header">
-                <h2>How You Can Help</h2>
+                <h2>Our Services</h2>
+                <p>We offer comprehensive programs to address food insecurity and promote nutritional wellness in our community.</p>
             </div>
-            <div class="quick-links-grid">
-                <div class="quick-link-card">
-                    <div class="card-image" style="background-image: url('images/get-help-card.jpg');"></div>
-                    <div class="card-content">
-                        <h3>Get Help</h3>
-                        <p>Learn about our food distribution programs and how to receive assistance for you and your family.</p>
-                        <a href="get-help.html" class="btn-small">Learn More</a>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Weekly Food Distribution</h3>
+                        <p>Fresh produce, pantry staples, and proteins distributed every Wednesday and Saturday to registered families.</p>
+                        <a href="#" class="service-link">
+                            Learn More
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="quick-link-card">
-                    <div class="card-image" style="background-image: url('images/volunteer-card.jpg');"></div>
-                    <div class="card-content">
-                        <h3>Volunteer</h3>
-                        <p>Join our team of dedicated volunteers and make a difference in your community.</p>
-                        <a href="volunteer.html" class="btn-small">Get Involved</a>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Mobile Pantry Program</h3>
+                        <p>Bringing fresh food directly to underserved neighborhoods through our fleet of mobile pantries.</p>
+                        <a href="#" class="service-link">
+                            Learn More
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="quick-link-card">
-                    <div class="card-image" style="background-image: url('images/donate-card.jpg');"></div>
-                    <div class="card-content">
-                        <h3>Donate</h3>
-                        <p>Your generous donations help us fight food insecurity in Lexington.</p>
-                        <a href="donate.html" class="btn-small">Give Today</a>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Nutrition Education</h3>
+                        <p>Free cooking classes and nutrition workshops to help families make the most of their groceries.</p>
+                        <a href="#" class="service-link">
+                            Learn More
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission">
-        <div class="container">
-            <h2>Our Mission</h2>
-            <p>The Lexington Food Pantry is committed to alleviating hunger and food insecurity in our community by providing nutritious food, resources, and support to our neighbors in need, while treating all with dignity and respect.</p>
-            <a href="about.html" class="btn btn-outline">Learn More About Us</a>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section class="news">
+    <!-- Testimonials -->
+    <section class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>Latest News</h2>
+                <h2>Stories From Our Community</h2>
+                <p>Hear from those whose lives we've touched through our programs and services.</p>
             </div>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-image" style="background-image: url('images/news1.jpg');"></div>
-                    <div class="news-content">
-                        <p class="news-date">June 15, 2023</p>
-                        <h3>Summer Food Drive Success</h3>
-                        <p>Thanks to our amazing community, we collected over 2,000 pounds of food during our annual summer drive.</p>
-                        <a href="news/summer-drive.html" class="read-more">Read More →</a>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The Lexington Food Pantry has been a lifeline for my family during difficult times. The fresh produce and kindness we receive make all the difference.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Maria G." class="author-img">
+                        <div class="author-info">
+                            <h4>Maria G.</h4>
+                            <p>Pantry Client</p>
+                        </div>
                     </div>
                 </div>
-                <div class="news-card">
-                    <div class="news-image" style="background-image: url('images/news2.jpg');"></div>
-                    <div class="news-content">
-                        <p class="news-date">May 28, 2023</p>
-                        <h3>New Volunteer Orientation</h3>
-                        <p>Join us for our next volunteer orientation session on June 10th at the Pantry headquarters.</p>
-                        <a href="news/volunteer-orientation.html" class="read-more">Read More →</a>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Volunteering here has been one of the most rewarding experiences of my life. Seeing the direct impact we make keeps me coming back every week.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James T." class="author-img">
+                        <div class="author-info">
+                            <h4>James T.</h4>
+                            <p>Volunteer</p>
+                        </div>
                     </div>
                 </div>
-                <div class="news-card">
-                    <div class="news-image" style="background-image: url('images/news3.jpg');"></div>
-                    <div class="news-content">
-                        <p class="news-date">April 10, 2023</p>
-                        <h3>Partnership with Local Farms</h3>
-                        <p>We're excited to announce new partnerships with three local farms to provide fresh produce.</p>
-                        <a href="news/farm-partnerships.html" class="read-more">Read More →</a>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        As a local farmer, I'm proud to donate my excess produce knowing it's going directly to families who need it most through this amazing organization.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah K." class="author-img">
+                        <div class="author-info">
+                            <h4>Sarah K.</h4>
+                            <p>Local Partner</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Connected</h2>
+            <p>Subscribe to our newsletter for updates on programs, events, and how you can help fight hunger in Lexington.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
         </div>
     </section>
 
@@ -474,39 +853,86 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p>123 Main Street<br>
-                    Lexington, MA 02420</p>
-                    <p>Phone: (781) 555-1234</p>
-                    <p>Email: info@lexingtonfoodpantry.org</p>
+                <div class="footer-about">
+                    <div class="footer-logo">Lexington Pantry</div>
+                    <p>Committed to ending hunger and food insecurity in Lexington through community partnerships, nutritional education, and dignified access to healthy food.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Hours</h3>
-                    <p>Monday: 9am-12pm<br>
-                    Wednesday: 3pm-6pm<br>
-                    Friday: 9am-12pm</p>
-                </div>
-                <div class="footer-column">
+                <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="get-help.html">Get Help</a></li>
-                        <li><a href="volunteer.html">Volunteer</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Get Assistance</a></li>
+                        <li><a href="#">Food Programs</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Events</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                        <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
-                        <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                    </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Nutrition Guides</a></li>
+                        <li><a href="#">Community Partners</a></li>
+                        <li><a href="#">Annual Report</a></li>
+                        <li><a href="#">Food Safety</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        123 Main Street, Lexington, MA 02420
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        (781) 555-1234
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        info@lexingtonpantry.org
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Mon-Fri: 9AM - 5PM
+                    </p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Lexington Food Pantry. All rights reserved.</p>
+                &copy; 2023 Lexington Food Pantry. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
             </div>
         </div>
     </footer>
