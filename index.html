@@ -3,134 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexington Food Pantry - Fighting Food Insecurity</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Lexington Food Pantry</title>
+    <style>
+        /* TEMPORARY IN-PAGE CSS FOR TESTING */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-image.jpg');
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .cta-buttons {
+            margin-top: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background: #FFD700;
+            color: #333;
+        }
+        .btn-secondary {
+            background: #1565C0;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <!-- Top Navigation Bar -->
-    <header class="main-header">
-        <div class="container">
+    <header>
+        <div class="container header-container">
             <div class="logo">
-                <img src="images/lfp-logo.png" alt="Lexington Food Pantry Logo">
+                <img src="logo.png" alt="Lexington Food Pantry" height="50">
             </div>
-            <nav class="main-nav">
+            <nav>
                 <ul>
-                    <li class="current"><a href="index.html">Home</a></li>
-                    <li><a href="get-help/index.html">Get Help</a></li>
-                    <li><a href="volunteer/index.html">Volunteer</a></li>
-                    <li><a href="about/index.html">About Us</a></li>
-                    <li><a href="donate/index.html">Donate</a></li>
-                    <li><a href="news/index.html">News</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="get-help.html">Get Help</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="news.html">News</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Banner with CTA -->
-    <section class="hero-banner">
+    <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Lexington Food Pantry</h1>
-                <p class="tagline">Providing nutritious food to neighbors in need since 1982</p>
-                <div class="hero-cta">
-                    <a href="get-help/index.html" class="btn btn-primary">Get Food Assistance</a>
-                    <a href="donate/index.html" class="btn btn-secondary">Donate Now</a>
-                </div>
+            <h1>Lexington Food Pantry</h1>
+            <p>Helping our neighbors in need since 1982</p>
+            <div class="cta-buttons">
+                <a href="get-help.html" class="btn btn-primary">Get Food Assistance</a>
+                <a href="donate.html" class="btn btn-secondary">Donate Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Quick Links Section -->
-    <section class="quick-links">
-        <div class="container">
-            <div class="quick-link-card">
-                <img src="images/food-basket-icon.png" alt="Food Assistance">
-                <h3>Get Help</h3>
-                <p>Learn how to receive food assistance</p>
-                <a href="get-help/index.html" class="btn btn-small">Learn More</a>
-            </div>
-            <div class="quick-link-card">
-                <img src="images/volunteer-icon.png" alt="Volunteer">
-                <h3>Volunteer</h3>
-                <p>Join our team of dedicated volunteers</p>
-                <a href="volunteer/index.html" class="btn btn-small">Get Involved</a>
-            </div>
-            <div class="quick-link-card">
-                <img src="images/donate-icon.png" alt="Donate">
-                <h3>Donate</h3>
-                <p>Support our mission financially</p>
-                <a href="donate/index.html" class="btn btn-small">Give Today</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission Statement Section -->
-    <section class="mission-statement">
-        <div class="container">
-            <h2>Our Mission</h2>
-            <p>The Lexington Food Pantry is committed to alleviating hunger and food insecurity in our community by providing nutritious food, resources, and support to our neighbors in need, while treating all with dignity and respect.</p>
-            <a href="about/index.html" class="btn btn-outline">Learn More About Us</a>
-        </div>
-    </section>
-
-    <!-- News/Updates Section -->
-    <section class="news-updates">
-        <div class="container">
-            <h2>Latest News</h2>
-            <div class="news-grid">
-                <article class="news-card">
-                    <img src="images/news1.jpg" alt="News image">
-                    <div class="news-content">
-                        <h3>Summer Food Drive Success</h3>
-                        <p class="news-date">June 15, 2023</p>
-                        <p>Thanks to our amazing community, we collected over 2,000 pounds of food during our annual summer drive.</p>
-                        <a href="news/summer-drive.html" class="read-more">Read More</a>
-                    </div>
-                </article>
-                <article class="news-card">
-                    <img src="images/news2.jpg" alt="News image">
-                    <div class="news-content">
-                        <h3>New Volunteer Orientation</h3>
-                        <p class="news-date">May 28, 2023</p>
-                        <p>Join us for our next volunteer orientation session on June 10th at the Pantry headquarters.</p>
-                        <a href="news/volunteer-orientation.html" class="read-more">Read More</a>
-                    </div>
-                </article>
-            </div>
-            <a href="news/index.html" class="btn btn-outline">View All News</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-column">
-                <h4>Contact Us</h4>
-                <p>123 Main Street<br>Lexington, MA 02420</p>
-                <p>Phone: (781) 555-1234</p>
-                <p>Email: info@lexingtonfoodpantry.org</p>
-            </div>
-            <div class="footer-column">
-                <h4>Hours</h4>
-                <p>Monday: 9am-12pm<br>
-                Wednesday: 3pm-6pm<br>
-                Friday: 9am-12pm</p>
-            </div>
-            <div class="footer-column">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
-                    <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 Lexington Food Pantry. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Additional sections will go here -->
 </body>
 </html>
