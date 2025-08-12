@@ -5,78 +5,370 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lexington Food Pantry</title>
     <style>
-        /* TEMPORARY IN-PAGE CSS FOR TESTING */
+        /* Modern CSS Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Base Styles */
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: #333;
         }
+        
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
+        
+        img { max-width: 100%; height: auto; }
+        
+        /* Header Styles */
         header {
             background: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
+        
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+        
+        .logo img {
+            height: 60px;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
         }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
         nav a {
             text-decoration: none;
             color: #333;
             font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
         }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #4CAF50;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-image.jpg');
+            background: linear-gradient(rgba(0,0,0,0.6), url('images/food-pantry-hero.jpg');
             background-size: cover;
+            background-position: center;
             color: white;
-            padding: 100px 0;
             text-align: center;
+            padding: 120px 0;
         }
-        .cta-buttons {
-            margin-top: 30px;
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
         .btn {
             display: inline-block;
-            padding: 12px 25px;
-            margin: 0 10px;
+            padding: 12px 30px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
+            margin: 0 10px;
+            transition: all 0.3s;
         }
+        
         .btn-primary {
             background: #FFD700;
             color: #333;
         }
+        
+        .btn-primary:hover {
+            background: #FFC800;
+            transform: translateY(-2px);
+        }
+        
         .btn-secondary {
-            background: #1565C0;
+            background: #2196F3;
             color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #0d8bf2;
+            transform: translateY(-2px);
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            padding: 60px 0;
+            background: #f9f9f9;
+        }
+        
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .quick-link-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .quick-link-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h3 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+        }
+        
+        .card-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .btn-small {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #2E7D32;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .mission h2 {
+            color: #2E7D32;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        
+        .mission p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* News Section */
+        .news {
+            padding: 60px 0;
+            background: #f9f9f9;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            color: #2E7D32;
+            font-size: 2.2rem;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .news-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-date {
+            color: #2196F3;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .news-content h3 {
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2E7D32;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: #FFD700;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links img {
+            height: 30px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .social-links img:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                margin: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="logo.png" alt="Lexington Food Pantry" height="50">
+                <img src="images/lfp-logo.png" alt="Lexington Food Pantry">
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="get-help.html">Get Help</a></li>
                     <li><a href="volunteer.html">Volunteer</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="donate.html">Donate</a></li>
                     <li><a href="news.html">News</a></li>
                 </ul>
@@ -84,10 +376,11 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Lexington Food Pantry</h1>
-            <p>Helping our neighbors in need since 1982</p>
+            <h1>Supporting Our Lexington Community</h1>
+            <p>Providing nutritious food and resources to neighbors in need since 1982</p>
             <div class="cta-buttons">
                 <a href="get-help.html" class="btn btn-primary">Get Food Assistance</a>
                 <a href="donate.html" class="btn btn-secondary">Donate Now</a>
@@ -95,6 +388,127 @@
         </div>
     </section>
 
-    <!-- Additional sections will go here -->
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="section-header">
+                <h2>How You Can Help</h2>
+            </div>
+            <div class="quick-links-grid">
+                <div class="quick-link-card">
+                    <div class="card-image" style="background-image: url('images/get-help-card.jpg');"></div>
+                    <div class="card-content">
+                        <h3>Get Help</h3>
+                        <p>Learn about our food distribution programs and how to receive assistance for you and your family.</p>
+                        <a href="get-help.html" class="btn-small">Learn More</a>
+                    </div>
+                </div>
+                <div class="quick-link-card">
+                    <div class="card-image" style="background-image: url('images/volunteer-card.jpg');"></div>
+                    <div class="card-content">
+                        <h3>Volunteer</h3>
+                        <p>Join our team of dedicated volunteers and make a difference in your community.</p>
+                        <a href="volunteer.html" class="btn-small">Get Involved</a>
+                    </div>
+                </div>
+                <div class="quick-link-card">
+                    <div class="card-image" style="background-image: url('images/donate-card.jpg');"></div>
+                    <div class="card-content">
+                        <h3>Donate</h3>
+                        <p>Your generous donations help us fight food insecurity in Lexington.</p>
+                        <a href="donate.html" class="btn-small">Give Today</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>The Lexington Food Pantry is committed to alleviating hunger and food insecurity in our community by providing nutritious food, resources, and support to our neighbors in need, while treating all with dignity and respect.</p>
+            <a href="about.html" class="btn btn-outline">Learn More About Us</a>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest News</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image" style="background-image: url('images/news1.jpg');"></div>
+                    <div class="news-content">
+                        <p class="news-date">June 15, 2023</p>
+                        <h3>Summer Food Drive Success</h3>
+                        <p>Thanks to our amazing community, we collected over 2,000 pounds of food during our annual summer drive.</p>
+                        <a href="news/summer-drive.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image" style="background-image: url('images/news2.jpg');"></div>
+                    <div class="news-content">
+                        <p class="news-date">May 28, 2023</p>
+                        <h3>New Volunteer Orientation</h3>
+                        <p>Join us for our next volunteer orientation session on June 10th at the Pantry headquarters.</p>
+                        <a href="news/volunteer-orientation.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image" style="background-image: url('images/news3.jpg');"></div>
+                    <div class="news-content">
+                        <p class="news-date">April 10, 2023</p>
+                        <h3>Partnership with Local Farms</h3>
+                        <p>We're excited to announce new partnerships with three local farms to provide fresh produce.</p>
+                        <a href="news/farm-partnerships.html" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>123 Main Street<br>
+                    Lexington, MA 02420</p>
+                    <p>Phone: (781) 555-1234</p>
+                    <p>Email: info@lexingtonfoodpantry.org</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Hours</h3>
+                    <p>Monday: 9am-12pm<br>
+                    Wednesday: 3pm-6pm<br>
+                    Friday: 9am-12pm</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="get-help.html">Get Help</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+                        <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
+                        <a href="#"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Lexington Food Pantry. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
