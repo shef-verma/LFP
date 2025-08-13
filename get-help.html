@@ -4,27 +4,540 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Help | Lexington Food Pantry</title>
-    <!-- (Same head content as index.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunflower: #FED566;
+            --pond: #51839B;
+            --cream: #F7EFDB;
+            --stone: #3D4B58;
+            --sage: #8EA05D;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--stone);
+            line-height: 1.7;
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--stone);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header - Matches Homepage */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(247, 239, 219, 0.96);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 12px;
+        }
+        
+        .logo-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sage);
+        }
+        
+        .logo-tagline {
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.7rem;
+            color: var(--pond);
+            margin-top: 2px;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--stone);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage);
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--sage);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            background: var(--sage);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+        
+        .nav-cta:hover {
+            background: #7d8f4f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(142, 160, 93, 0.3);
+        }
+        
+        .nav-cta:after {
+            display: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(81, 131, 155, 0.85), rgba(81, 131, 155, 0.85)), 
+                        url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.3rem;
+            color: var(--stone);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--sage);
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--stone);
+            opacity: 0.8;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+        
+        .service-content p {
+            color: var(--stone);
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background: var(--sunflower);
+            color: var(--stone);
+            box-shadow: 0 5px 20px rgba(254, 213, 102, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: #f3ca4a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(254, 213, 102, 0.4);
+        }
+        
+        /* Info Section */
+        .info-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .info-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--sage);
+        }
+        
+        .info-content ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .info-content li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .info-content li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sage);
+            font-weight: bold;
+        }
+        
+        .info-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Emergency Banner */
+        .emergency-banner {
+            background: var(--sunflower);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .emergency-banner h3 {
+            color: var(--stone);
+            margin-bottom: 10px;
+        }
+        
+        .emergency-banner p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--stone);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--stone);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+            color: var(--sunflower);
+        }
+        
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--sage);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--sunflower);
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--sunflower);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-contact svg {
+            margin-right: 10px;
+            color: var(--sunflower);
+            min-width: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 100px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header - Matches Homepage Exactly -->
     <header>
-        <!-- (Same header as index.html with current page highlighted) -->
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50x50/8EA05D/FFFFFF?text=LFP" alt="Lexington Food Pantry">
+                <div class="logo-text">
+                    Lexington Food Pantry
+                    <span class="logo-tagline">Feeding Lexington every Saturday morning</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="get-help.html">Get Help</a></li>
+                    <li><a href="our-operations.html">Our Operations</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="donate.html" class="nav-cta">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero" style="background-image: linear-gradient(rgba(81, 131, 155, 0.85), rgba(81, 131, 155, 0.85)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Get Help</h1>
-                <p>Accessing nutritious food with dignity and respect</p>
+                <h1>Food Assistance</h1>
+                <p>Access fresh, nutritious food with dignity every Saturday morning</p>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section class="services">
         <div class="container">
             <div class="section-header">
-                <h2>How Our Pantry Works</h2>
-                <p>We make it simple to get the food assistance you need</p>
+                <h2>How To Get Help</h2>
+                <p>We've designed our services to be welcoming and easy to access</p>
             </div>
             
             <div class="services-grid">
@@ -32,22 +545,26 @@
                     <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
                     <div class="service-content">
                         <h3>Weekly Distribution</h3>
-                        <p>Visit us every Saturday 8AM-12PM at our market-style pantry to select fresh groceries</p>
-                        <div class="address-card">
-                            <p><strong>123 Main Street</strong><br>Lexington, MA 02420</p>
+                        <p>Visit our market-style pantry every Saturday from 8AM to 12PM to select the fresh groceries your family needs.</p>
+                        <div class="address-card" style="background: var(--cream); padding: 15px; border-radius: 8px; margin: 20px 0;">
+                            <p><strong>Lexington Food Pantry</strong><br>
+                            123 Main Street<br>
+                            Lexington, MA 02420</p>
                         </div>
+                        <a href="#" class="btn btn-primary">View Map</a>
                     </div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
                     <div class="service-content">
-                        <h3>What to Bring</h3>
-                        <ul class="icon-list">
-                            <li>Photo ID showing Lexington address</li>
-                            <li>Reusable bags if available</li>
-                            <li>No proof of income required</li>
+                        <h3>What To Bring</h3>
+                        <ul style="list-style: none; margin-bottom: 20px;">
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✓ Photo ID with Lexington address</li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✓ Reusable bags (if available)</li>
+                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✓ No proof of income required</li>
                         </ul>
+                        <p style="font-style: italic; color: var(--pond);">We operate on an honor system - all are welcome</p>
                     </div>
                 </div>
                 
@@ -55,81 +572,111 @@
                     <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
                     <div class="service-content">
                         <h3>Home Delivery</h3>
-                        <p>For seniors and homebound residents, we offer weekly grocery delivery</p>
-                        <a href="#" class="btn btn-small">Request Delivery</a>
+                        <p>For seniors and homebound residents, we offer weekly grocery delivery on Thursdays.</p>
+                        <p style="margin: 15px 0 25px;">Our volunteers will bring a selection of fresh and pantry items directly to your door.</p>
+                        <a href="#" class="btn btn-primary">Request Delivery</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="testimonials">
+    <!-- Info Section -->
+    <section class="info-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Client Experiences</h2>
-                <p>Hear from neighbors who use our services</p>
+            <div class="info-grid">
+                <div class="info-content">
+                    <h2>What To Expect</h2>
+                    <p style="margin-bottom: 20px;">Our market-style distribution allows you to choose the items that best meet your family's needs.</p>
+                    
+                    <ul>
+                        <li>Fresh fruits and vegetables</li>
+                        <li>Protein sources (meat, eggs, or beans)</li>
+                        <li>Dairy products</li>
+                        <li>Bread and bakery items</li>
+                        <li>Pantry staples (rice, pasta, cereal)</li>
+                        <li>Personal care items when available</li>
+                    </ul>
+                </div>
+                
+                <div class="info-image">
+                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Food selection at pantry">
+                </div>
             </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        The volunteers treat everyone with such kindness. My kids love picking out fresh fruit each week.
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client" class="author-img">
-                        <div class="author-info">
-                            <h4>Maria G.</h4>
-                            <p>Pantry Client</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        As a senior without a car, the home delivery service has been a lifesaver during these cold months.
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/72.jpg" alt="Client" class="author-img">
-                        <div class="author-info">
-                            <h4>Robert T.</h4>
-                            <p>Delivery Recipient</p>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="emergency-banner">
+                <h3>Emergency Food Needs?</h3>
+                <p>Call our 24/7 hotline: <strong>(781) 555-HELP</strong></p>
             </div>
         </div>
     </section>
 
-    <section class="stats" style="background-color: var(--cream);">
-        <div class="container">
-            <div class="section-header">
-                <h2>By The Numbers</h2>
-            </div>
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Dignity Guaranteed</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">25+</div>
-                    <div class="stat-label">Fresh Produce Items Weekly</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">0</div>
-                    <div class="stat-label">Income Requirements</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="newsletter">
-        <div class="container">
-            <h2>Need Immediate Help?</h2>
-            <p>Call our emergency food hotline: <strong>(781) 555-HELP</strong></p>
-            <p>Available 24/7 for urgent food needs</p>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
-        <!-- (Same footer as index.html) -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">Lexington Pantry</div>
+                    <p>Providing fresh, nutritious food to our neighbors in need with dignity and compassion since 1982.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="get-help.html">Get Help</a></li>
+                        <li><a href="our-operations.html">Our Operations</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        123 Main Street, Lexington, MA 02420
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        (781) 555-1234
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        info@lexingtonpantry.org
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Lexington Food Pantry. All rights reserved.
+            </div>
+        </div>
     </footer>
 </body>
 </html>
