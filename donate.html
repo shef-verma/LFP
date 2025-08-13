@@ -11,140 +11,147 @@
         <!-- (Same header as index.html with current page highlighted) -->
     </header>
 
-    <section class="page-hero" style="background-image: linear-gradient(rgba(81, 131, 155, 0.85), rgba(81, 131, 155, 0.85)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+    <section class="hero" style="background-image: linear-gradient(rgba(81, 131, 155, 0.85), rgba(81, 131, 155, 0.85)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
         <div class="container">
-            <h1>Donate</h1>
-            <p>Your support nourishes our community</p>
+            <div class="hero-content">
+                <h1>Donate</h1>
+                <p>Your support nourishes our community</p>
+            </div>
         </div>
     </section>
 
-    <section class="page-content">
+    <section class="donation-options">
         <div class="container">
-            <div class="donate-intro">
-                <h2>Every Gift Makes a Difference</h2>
-                <p>$1 provides 3 meals for a neighbor in need. Choose how you'd like to support our work:</p>
+            <div class="section-header">
+                <h2>Ways to Give</h2>
+                <p>Every contribution makes a difference</p>
             </div>
-
-            <div class="donation-options">
-                <div class="donation-tabs">
-                    <button class="tab-btn active" data-tab="financial">Financial</button>
-                    <button class="tab-btn" data-tab="food">Food</button>
-                    <button class="tab-btn" data-tab="other">Other Ways</button>
-                </div>
-
-                <div class="tab-content active" id="financial">
-                    <h3>Financial Donations</h3>
-                    <p>Monetary gifts allow us to purchase fresh produce and proteins at wholesale prices.</p>
-                    
-                    <div class="amount-options">
-                        <div class="amount-option">
-                            <h4>$25</h4>
-                            <p>Feeds a senior for a week</p>
-                            <button class="btn btn-small">Donate</button>
+            
+            <div class="options-tabs">
+                <button class="tab-btn active" data-tab="financial">Financial</button>
+                <button class="tab-btn" data-tab="food">Food</button>
+                <button class="tab-btn" data-tab="other">Other</button>
+            </div>
+            
+            <div class="tab-content active" id="financial">
+                <div class="donation-cards">
+                    <div class="donation-card">
+                        <h3>One-Time Gift</h3>
+                        <div class="amount-options">
+                            <button class="amount-btn">$25</button>
+                            <button class="amount-btn">$50</button>
+                            <button class="amount-btn">$100</button>
+                            <div class="custom-amount">
+                                <span>$</span>
+                                <input type="number" placeholder="Other amount">
+                            </div>
                         </div>
-                        <div class="amount-option">
-                            <h4>$50</h4>
-                            <p>Provides a family's groceries</p>
-                            <button class="btn btn-small">Donate</button>
-                        </div>
-                        <div class="amount-option">
-                            <h4>$100</h4>
-                            <p>Stocks our dairy section</p>
-                            <button class="btn btn-small">Donate</button>
-                        </div>
-                        <div class="amount-option">
-                            <h4>Custom</h4>
-                            <input type="number" placeholder="$ Other amount">
-                            <button class="btn btn-small">Donate</button>
-                        </div>
+                        <button class="btn btn-primary">Donate Now</button>
                     </div>
-
-                    <div class="recurring-option">
-                        <h4>Monthly Giving</h4>
-                        <p>Sustain our work with automatic monthly donations:</p>
-                        <label>
-                            <input type="checkbox"> Make this a monthly gift
+                    
+                    <div class="donation-card">
+                        <h3>Monthly Support</h3>
+                        <p>Sustain our work with automatic monthly giving</p>
+                        <div class="amount-options">
+                            <button class="amount-btn">$10/mo</button>
+                            <button class="amount-btn">$25/mo</button>
+                            <button class="amount-btn">$50/mo</button>
+                        </div>
+                        <label class="recurring-checkbox">
+                            <input type="checkbox"> Make my donation recurring
                         </label>
-                    </div>
-
-                    <div class="other-ways">
-                        <h4>Other Financial Options</h4>
-                        <ul>
-                            <li><a href="#">Corporate Matching</a></li>
-                            <li><a href="#">Stock Donations</a></li>
-                            <li><a href="#">Legacy Giving</a></li>
-                        </ul>
+                        <button class="btn btn-primary">Donate Monthly</button>
                     </div>
                 </div>
-
-                <div class="tab-content" id="food">
-                    <h3>Food Donations</h3>
-                    <p>We welcome fresh and non-perishable food items during our donation hours:</p>
-                    
-                    <div class="food-lists">
-                        <div class="food-needed">
-                            <h4>Most Needed Items</h4>
-                            <ul>
-                                <li>Fresh fruits & vegetables</li>
-                                <li>Canned proteins (tuna, chicken)</li>
-                                <li>Whole grain pasta/rice</li>
-                                <li>Peanut butter</li>
-                                <li>Low-sodium canned veggies</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="food-restrictions">
-                            <h4>We Cannot Accept</h4>
-                            <ul>
-                                <li>Expired items</li>
-                                <li>Open packages</li>
-                                <li>Homemade foods</li>
-                                <li>Alcohol</li>
-                            </ul>
-                        </div>
+                
+                <div class="other-options">
+                    <h3>Other Financial Donations</h3>
+                    <div class="options-grid">
+                        <a href="#" class="option-card">
+                            <h4>Corporate Matching</h4>
+                            <p>Double your impact through employer matching</p>
+                        </a>
+                        <a href="#" class="option-card">
+                            <h4>Stock Donations</h4>
+                            <p>Donate appreciated securities</p>
+                        </a>
+                        <a href="#" class="option-card">
+                            <h4>Legacy Giving</h4>
+                            <p>Include LFP in your estate plans</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="food">
+                <div class="food-donation-grid">
+                    <div class="food-list">
+                        <h3>Most Needed Items</h3>
+                        <ul>
+                            <li>Fresh fruits & vegetables</li>
+                            <li>Canned proteins (tuna, chicken)</li>
+                            <li>Whole grain pasta/rice</li>
+                            <li>Peanut butter</li>
+                            <li>Low-sodium canned veggies</li>
+                        </ul>
                     </div>
                     
                     <div class="dropoff-info">
-                        <h4>Donation Hours</h4>
+                        <h3>Donation Hours</h3>
                         <p><strong>Tuesdays & Thursdays:</strong> 9AM-12PM</p>
                         <p><strong>Location:</strong> Rear entrance, 123 Main St</p>
-                    </div>
-                </div>
-
-                <div class="tab-content" id="other">
-                    <h3>Other Ways to Give</h3>
-                    
-                    <div class="other-options">
-                        <div class="other-option">
-                            <h4>Amazon Wishlist</h4>
-                            <p>Purchase needed items directly from our curated list</p>
-                            <a href="#" class="btn btn-small">View List</a>
-                        </div>
-                        
-                        <div class="other-option">
-                            <h4>Host a Food Drive</h4>
-                            <p>Organize a collection at your school, office, or community group</p>
-                            <a href="#" class="btn btn-small">Get Toolkit</a>
-                        </div>
-                        
-                        <div class="other-option">
-                            <h4>Corporate Partnerships</h4>
-                            <p>Engage your workplace in hunger relief</p>
-                            <a href="#" class="btn btn-small">Learn More</a>
-                        </div>
+                        <a href="#" class="btn btn-secondary">Download Full List</a>
                     </div>
                 </div>
             </div>
+            
+            <div class="tab-content" id="other">
+                <div class="other-ways-grid">
+                    <div class="other-way-card">
+                        <h3>Amazon Wishlist</h3>
+                        <p>Purchase needed items directly from our curated list</p>
+                        <a href="#" class="btn btn-small">Shop Now</a>
+                    </div>
+                    
+                    <div class="other-way-card">
+                        <h3>Host a Food Drive</h3>
+                        <p>Organize a collection at your school or workplace</p>
+                        <a href="#" class="btn btn-small">Get Toolkit</a>
+                    </div>
+                    
+                    <div class="other-way-card">
+                        <h3>Corporate Partnership</h3>
+                        <p>Engage your company in hunger relief</p>
+                        <a href="#" class="btn btn-small">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="impact-section">
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-header">
                 <h2>Your Impact</h2>
-                <div class="impact-statement">
-                    <p>Last year, thanks to donors like you:</p>
-                    <ul>
-                        <li>🧒 1,200+ children received nutritious food</li>
-                        <li>👵 300 seniors accessed our home delivery</li>
-                        <li>♻️ 85,000 lbs of food was rescued from waste</li>
-                    </ul>
+                <p>How donations transform lives</p>
+            </div>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-number">$25</div>
+                    <div class="impact-description">Provides a week's worth of groceries for a senior</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">$50</div>
+                    <div class="impact-description">Feeds a family of four for a week</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">$100</div>
+                    <div class="impact-description">Stocks our dairy section for a day</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-number">$500</div>
+                    <div class="impact-description">Fuels our delivery van for a month</div>
                 </div>
             </div>
         </div>
@@ -155,7 +162,7 @@
     </footer>
 
     <script>
-        // Simple tab functionality
+        // Tab functionality
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 // Remove active class from all buttons and content
