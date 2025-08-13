@@ -11,86 +11,122 @@
         <!-- (Same header as index.html with current page highlighted) -->
     </header>
 
-    <section class="page-hero" style="background-image: linear-gradient(rgba(81, 131, 155, 0.85), rgba(81, 131, 155, 0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+    <section class="hero" style="background-image: linear-gradient(rgba(81, 131, 155, 0.85), rgba(81, 131, 155, 0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
         <div class="container">
-            <h1>About Us</h1>
-            <p>Our story, mission, and impact in Lexington</p>
+            <div class="hero-content">
+                <h1>About Us</h1>
+                <p>Our story, mission, and vision for Lexington</p>
+            </div>
         </div>
     </section>
 
-    <section class="page-content">
+    <section class="history-section">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-history">
-                    <h2>Our History</h2>
-                    <p>Founded in 1982 by a coalition of local churches, the Lexington Food Pantry began as a small closet operation serving 15 families. Today we operate a full-service distribution center serving over 1,200 residents monthly.</p>
-                    
-                    <div class="milestone">
-                        <h3>1982</h3>
-                        <p>Pantry founded by First Baptist Church members</p>
-                    </div>
-                    <div class="milestone">
-                        <h3>1995</h3>
-                        <p>Moved to current location with dedicated space</p>
-                    </div>
-                    <div class="milestone">
-                        <h3>2010</h3>
-                        <p>Launched home delivery program</p>
-                    </div>
-                    <div class="milestone">
-                        <h3>2020</h3>
-                        <p>Pandemic response served triple the typical families</p>
+            <div class="section-header">
+                <h2>Our History</h2>
+                <p>From humble beginnings to community cornerstone</p>
+            </div>
+            
+            <div class="history-timeline">
+                <div class="history-item">
+                    <div class="history-year">1982</div>
+                    <div class="history-content">
+                        <h3>Pantry Founded</h3>
+                        <p>Started in a church basement serving 15 families weekly</p>
                     </div>
                 </div>
+                <div class="history-item">
+                    <div class="history-year">1995</div>
+                    <div class="history-content">
+                        <h3>First Permanent Home</h3>
+                        <p>Moved to our current location with dedicated refrigeration</p>
+                    </div>
+                </div>
+                <div class="history-item">
+                    <div class="history-year">2010</div>
+                    <div class="history-content">
+                        <h3>Home Delivery Launched</h3>
+                        <p>Began serving homebound seniors with weekly deliveries</p>
+                    </div>
+                </div>
+                <div class="history-item">
+                    <div class="history-year">2020</div>
+                    <div class="history-content">
+                        <h3>Pandemic Response</h3>
+                        <p>Served triple our typical families during COVID crisis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="about-mission">
+    <section class="mission-section" style="background-color: var(--cream);">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-card">
                     <h2>Our Mission</h2>
-                    <div class="mission-card">
-                        <p>To alleviate hunger in Lexington by providing nutritious food with dignity, while building community connections and advocating for systemic change.</p>
-                    </div>
-
+                    <p>To alleviate hunger in Lexington by providing nutritious food with dignity, while building community connections and advocating for systemic change.</p>
+                </div>
+                <div class="values-card">
                     <h3>Core Values</h3>
-                    <div class="values-grid">
-                        <div class="value-item">
+                    <ul class="values-list">
+                        <li>
                             <h4>Dignity</h4>
-                            <p>Everyone deserves respect in accessing food</p>
-                        </div>
-                        <div class="value-item">
-                            <h4>Community</h4>
-                            <p>We're neighbors helping neighbors</p>
-                        </div>
-                        <div class="value-item">
+                            <p>Everyone deserves respect when accessing food assistance</p>
+                        </li>
+                        <li>
                             <h4>Sustainability</h4>
-                            <p>Reducing waste through food recovery</p>
-                        </div>
-                        <div class="value-item">
-                            <h4>Equity</h4>
-                            <p>Equal access to nutritious food</p>
-                        </div>
-                    </div>
+                            <p>We prioritize food rescue and waste reduction</p>
+                        </li>
+                        <li>
+                            <h4>Community</h4>
+                            <p>Neighbors helping neighbors is at our core</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="team-section">
-                <h2>Our Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Jamie Wilson">
-                        <h3>Jamie Wilson</h3>
-                        <p class="position">Executive Director</p>
-                        <p class="bio">With 15 years in nonprofit leadership, Jamie ensures our programs meet community needs.</p>
-                    </div>
-                    <!-- More team members -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Team</h2>
+                <p>The people behind our operations</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Jamie Wilson">
+                    <h3>Jamie Wilson</h3>
+                    <p class="position">Executive Director</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
+                    <h3>Michael Chen</h3>
+                    <p class="position">Food Sourcing Manager</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Sarah Johnson">
+                    <h3>Sarah Johnson</h3>
+                    <p class="position">Volunteer Coordinator</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="partners-section">
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-header">
                 <h2>Our Partners</h2>
-                <div class="partners-grid">
-                    <img src="https://via.placeholder.com/150x80/3D4B58/F7EFDB?text=Greater+Boston+Food+Bank" alt="Greater Boston Food Bank">
-                    <img src="https://via.placeholder.com/150x80/3D4B58/F7EFDB?text=Town+of+Lexington" alt="Town of Lexington">
-                    <!-- More partner logos -->
-                </div>
+                <p>Working together to fight hunger</p>
+            </div>
+            
+            <div class="partners-grid">
+                <img src="https://via.placeholder.com/200x100/3D4B58/F7EFDB?text=Greater+Boston+Food+Bank" alt="Greater Boston Food Bank">
+                <img src="https://via.placeholder.com/200x100/3D4B58/F7EFDB?text=Town+of+Lexington" alt="Town of Lexington">
+                <img src="https://via.placeholder.com/200x100/3D4B58/F7EFDB?text=Lexington+Farmers+Co-op" alt="Lexington Farmers Co-op">
+                <img src="https://via.placeholder.com/200x100/3D4B58/F7EFDB?text=United+Way" alt="United Way">
             </div>
         </div>
     </section>
