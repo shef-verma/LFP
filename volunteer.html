@@ -4,148 +4,928 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer | Lexington Food Pantry</title>
-    <!-- (Same head content as index.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunflower: #FED566;
+            --pond: #51839B;
+            --cream: #F7EFDB;
+            --stone: #3D4B58;
+            --sage: #8EA05D;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--stone);
+            line-height: 1.7;
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--stone);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(247, 239, 219, 0.96);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 12px;
+        }
+        
+        .logo-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sage);
+        }
+        
+        .logo-tagline {
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.7rem;
+            color: var(--pond);
+            margin-top: 2px;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--stone);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        nav a.active {
+            color: var(--sage);
+        }
+        
+        nav a.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--sage);
+        }
+        
+        nav a:hover {
+            color: var(--sage);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage);
+            transition: var(--transition);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            background: var(--sage);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+        
+        .nav-cta:hover {
+            background: #7d8f4f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(142, 160, 93, 0.3);
+        }
+        
+        .nav-cta:after {
+            display: none;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(61, 75, 88, 0.85), rgba(61, 75, 88, 0.85)), 
+                        url('https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            padding: 180px 0 100px;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb a {
+            color: var(--sunflower);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+            opacity: 0.7;
+        }
+        
+        /* Volunteer Section */
+        .volunteer {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.3rem;
+            color: var(--stone);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--sage);
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--stone);
+            opacity: 0.8;
+        }
+        
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .role-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .role-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .role-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .role-content {
+            padding: 30px;
+        }
+        
+        .role-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--sage);
+        }
+        
+        .role-content p {
+            color: var(--stone);
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .role-details {
+            margin: 25px 0;
+        }
+        
+        .detail-item {
+            display: flex;
+            margin-bottom: 12px;
+        }
+        
+        .detail-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            color: var(--pond);
+        }
+        
+        .detail-text {
+            color: var(--stone);
+            font-size: 0.95rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: var(--sunflower);
+            color: var(--stone);
+            box-shadow: 0 5px 20px rgba(254, 213, 102, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(254, 213, 102, 0.4);
+        }
+        
+        /* Volunteer Form */
+        .volunteer-form {
+            background: white;
+            border-radius: 10px;
+            padding: 60px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .volunteer-form h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--pond);
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--stone);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--sage);
+            box-shadow: 0 0 0 3px rgba(142, 160, 93, 0.2);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .form-check input {
+            margin-right: 10px;
+        }
+        
+        /* Testimonials */
+        .volunteer-testimonials {
+            padding: 100px 0;
+            background: url('https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat fixed;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        
+        .volunteer-testimonials:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(61, 75, 88, 0.9);
+        }
+        
+        .volunteer-testimonials .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card {
+            background: rgba(247, 239, 219, 0.15);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+        }
+        
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-text:after {
+            bottom: -40px;
+            right: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--sage);
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: white;
+        }
+        
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--stone);
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            color: var(--sage);
+        }
+        
+        .faq-question:after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--pond);
+        }
+        
+        .faq-question.active:after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-answer.show {
+            padding: 0 25px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: var(--stone);
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--stone);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+            color: var(--sunflower);
+        }
+        
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--sage);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--sunflower);
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--sunflower);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-contact svg {
+            margin-right: 10px;
+            color: var(--sunflower);
+            min-width: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .copyright a {
+            color: var(--sunflower);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .volunteer-form {
+                padding: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px 10px;
+            }
+            
+            .page-header {
+                padding: 150px 0 80px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .volunteer-form {
+                padding: 30px 20px;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <header>
-        <!-- (Same header as index.html with current page highlighted) -->
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50x50/8EA05D/FFFFFF?text=LFP" alt="Lexington Food Pantry">
+                <div class="logo-text">
+                    Lexington Food Pantry
+                    <span class="logo-tagline">Feeding Lexington every Saturday morning</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="get-help.html">Get Help</a></li>
+                    <li><a href="our-operations.html">Our Operations</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="volunteer.html" class="active">Volunteer</a></li>
+                    <li><a href="donate.html" class="nav-cta">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero" style="background-image: linear-gradient(rgba(81, 131, 155, 0.85), rgba(81, 131, 155, 0.85)), url('https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
-            <div class="hero-content">
-                <h1>Volunteer</h1>
-                <p>Join our community of neighbors helping neighbors</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="volunteer.html">Volunteer</a>
             </div>
+            <h1>Join Our Volunteer Team</h1>
+            <p>Help us fight hunger in Lexington by donating your time and talents</p>
         </div>
     </section>
 
-    <section class="services">
+    <!-- Volunteer Roles -->
+    <section class="volunteer">
         <div class="container">
             <div class="section-header">
                 <h2>Volunteer Opportunities</h2>
-                <p>Find the perfect way to lend a hand</p>
+                <p>We have a variety of roles to match different skills, schedules, and interests</p>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
+            <div class="roles-grid">
+                <div class="role-card">
+                    <div class="role-img" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="role-content">
                         <h3>Food Distribution</h3>
-                        <p>Help clients select food and stock shelves during our Saturday markets</p>
-                        <div class="volunteer-details">
-                            <p><strong>When:</strong> Saturdays 7AM-1PM</p>
-                            <p><strong>Commitment:</strong> Weekly or monthly</p>
+                        <p>Assist clients with selecting food, restock shelves, and help maintain a welcoming environment during our Saturday distributions.</p>
+                        
+                        <div class="role-details">
+                            <div class="detail-item">
+                                <svg class="detail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <div class="detail-text">Saturday mornings, 7:30AM-12:30PM</div>
+                            </div>
+                            <div class="detail-item">
+                                <svg class="detail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                <div class="detail-text">Commitment: Weekly or bi-weekly</div>
+                            </div>
+                            <div class="detail-item">
+                                <svg class="detail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                <div class="detail-text">Age 14+ (under 16 with adult)</div>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-small">Sign Up</a>
+                        
+                        <a href="#volunteer-form" class="btn btn-primary">Apply Now</a>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Food Sorting</h3>
-                        <p>Inspect and organize incoming food donations on Wednesdays</p>
-                        <div class="volunteer-details">
-                            <p><strong>When:</strong> Wednesdays 9AM-12PM</p>
-                            <p><strong>Commitment:</strong> Flexible</p>
+                <div class="role-card">
+                    <div class="role-img" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="role-content">
+                        <h3>Home Delivery Driver</h3>
+                        <p>Deliver pre-packed boxes of groceries to homebound seniors and residents with mobility challenges.</p>
+                        
+                        <div class="role-details">
+                            <div class="detail-item">
+                                <svg class="detail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <div class="detail-text">Fridays, 10AM-2PM</div>
+                            </div>
+                            <div class="detail-item">
+                                <svg class="detail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                <div class="detail-text">Commitment: Weekly or monthly</div>
+                            </div>
+                            <div class="detail-item">
+                                <svg class="detail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                <div class="detail-text">Age 18+, valid driver's license</div>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-small">Sign Up</a>
+                        
+                        <a href="#volunteer-form" class="btn btn-primary">Apply Now</a>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Home Delivery</h3>
-                        <p>Bring groceries to homebound residents (flexible Thursday hours)</p>
-                        <div class="volunteer-details">
-                            <p><strong>When:</strong> Thursdays</p>
-                            <p><strong>Requires:</strong> Valid driver's license</p>
+                <div class="role-card">
+                    <div class="role-img" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="role-content">
+                        <h3>Community Garden</h3>
+                        <p>Help plant, maintain, and harvest vegetables in our half-acre garden that supplies fresh produce for the pantry.</p>
+                        
+                        <div class="role-details">
+                            <div class="detail-item">
+                                <svg class="detail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <div class="detail-text">Wednesdays & Saturdays, 9AM-12PM</div>
+                            </div>
+                            <div class="detail-item">
+                                <svg class="detail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                <div class="detail-text">Commitment: Flexible</div>
+                            </div>
+                            <div class="detail-item">
+                                <svg class="detail-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                <div class="detail-text">Age 10+ (under 16 with adult)</div>
+                            </div>
                         </div>
-                        <a href="#" class="btn btn-small">Sign Up</a>
+                        
+                        <a href="#volunteer-form" class="btn btn-primary">Apply Now</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Volunteer Stories</h2>
-                <p>Hear from those who give their time</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        I've met so many wonderful people volunteering here. It's become the highlight of my week.
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Volunteer" class="author-img">
-                        <div class="author-info">
-                            <h4>Lisa M.</h4>
-                            <p>Volunteer since 2018</p>
+            
+            <!-- Volunteer Form -->
+            <div class="volunteer-form" id="volunteer-form">
+                <h2>Volunteer Application</h2>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" class="form-control" required>
                         </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        As a retired teacher, volunteering gives me purpose and keeps me connected to our community.
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Volunteer" class="author-img">
-                        <div class="author-info">
-                            <h4>Robert T.</h4>
-                            <p>Delivery Driver</p>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" class="form-control" required>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="volunteer-form-section">
-        <div class="container">
-            <div class="form-container">
-                <h2>Ready to Volunteer?</h2>
-                <p>Complete this form and we'll contact you about next steps</p>
-                
-                <form class="volunteer-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" required>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="tel" id="phone">
+                            <input type="tel" id="phone" class="form-control" required>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label>Interests</label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" name="interests" value="distribution"> Food Distribution</label>
-                            <label><input type="checkbox" name="interests" value="sorting"> Food Sorting</label>
-                            <label><input type="checkbox" name="interests" value="delivery"> Home Delivery</label>
-                            <label><input type="checkbox" name="interests" value="garden"> Community Garden</label>
+                        <label for="address">Street Address</label>
+                        <input type="text" id="address" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">ZIP Code</label>
+                            <input type="text" id="zip" class="form-control" required>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label>Availability</label>
-                        <select>
-                            <option>Weekday Mornings</option>
-                            <option>Weekday Afternoons</option>
-                            <option>Saturdays</option>
-                            <option>Flexible</option>
-                        </select>
+                        <label>Volunteer Interests (check all that apply)</label>
+                        <div class="form-check">
+                            <input type="checkbox" id="interest-distribution">
+                            <label for="interest-distribution">Saturday Food Distribution</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="interest-delivery">
+                            <label for="interest-delivery">Home Delivery Driver</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="interest-garden">
+                            <label for="interest-garden">Community Garden</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="interest-food-drive">
+                            <label for="interest-food-drive">Food Drives</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="interest-office">
+                            <label for="interest-office">Office/Admin Support</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availability">Availability</label>
+                        <textarea id="availability" class="form-control" placeholder="Please describe your typical availability (days/times)"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Relevant Skills/Experience</label>
+                        <textarea id="experience" class="form-control" placeholder="Any special skills or experience you'd like to share?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivation">Why do you want to volunteer with us?</label>
+                        <textarea id="motivation" class="form-control"></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Submit Application</button>
@@ -154,8 +934,179 @@
         </div>
     </section>
 
+    <!-- Volunteer Testimonials -->
+    <section class="volunteer-testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Volunteers Say</h2>
+                <p>Hear from people who make our pantry a vibrant part of Lexington</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    Volunteering at the pantry has been one of the most rewarding experiences of my life. The connections I've made with both fellow volunteers and clients have enriched my life in ways I never expected. It's not just about handing out food - it's about building community.
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah J." class="author-img">
+                    <div class="author-info">
+                        <h4>Sarah J.</h4>
+                        <p>Volunteer since 2018</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Volunteer FAQ</h2>
+                <p>Answers to common questions about volunteering with us</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What are the age requirements for volunteering?</div>
+                <div class="faq-answer">
+                    <p>Our general volunteer age minimum is 14 years old. Volunteers aged 14-15 must be accompanied by a parent or guardian. Some positions like driving for our home delivery program require volunteers to be at least 18 with a valid driver's license. Our community garden welcomes families with children as young as 10 when supervised by an adult.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do I need any special skills or experience?</div>
+                <div class="faq-answer">
+                    <p>No special skills are required for most positions! We provide all necessary training. The most important qualities are compassion, reliability, and a willingness to help. For certain roles like food sorting or garden work, physical ability to lift 20-30 pounds may be needed.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What should I wear when volunteering?</div>
+                <div class="faq-answer">
+                    <p>Wear comfortable, weather-appropriate clothing that you don't mind getting a little dirty. Closed-toe shoes are required for all positions. For food distribution roles, we'll provide gloves and aprons. Garden volunteers should bring sun protection and consider bringing gardening gloves.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I fulfill community service hours with you?</div>
+                <div class="faq-answer">
+                    <p>Yes! We regularly work with students needing service hours for school and individuals completing court-ordered community service. Please bring any necessary paperwork with you to be signed by our volunteer coordinator. Note that we cannot accept volunteers with violent offenses due to the nature of our work.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do group volunteer opportunities work?</div>
+                <div class="faq-answer">
+                    <p>We welcome groups from schools, businesses, faith organizations, and community groups. Groups of 5-15 people can typically be accommodated with advance notice. Popular group activities include food sorting, garden work, and special projects. Please contact our volunteer coordinator at least 3 weeks in advance to schedule a group opportunity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <!-- (Same footer as index.html) -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">Lexington Pantry</div>
+                    <p>Committed to ending hunger in Lexington through neighborly care, fresh food access, and community partnerships since 1982.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="get-help.html">Get Assistance</a></li>
+                        <li><a href="our-operations.html">Our Operations</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Nutrition Guides</a></li>
+                        <li><a href="#">Community Partners</a></li>
+                        <li><a href="#">Annual Report</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        123 Main Street, Lexington, MA 02420
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        (781) 555-1234
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        info@lexingtonpantry.org
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Saturdays: 8AM - 12PM
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Lexington Food Pantry. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                question.classList.toggle('active');
+                answer.classList.toggle('show');
+                
+                // Close other open FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    if (q !== question && q.classList.contains('active')) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
