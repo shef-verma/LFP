@@ -4,176 +4,923 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate | Lexington Food Pantry</title>
-    <!-- (Same head content as index.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sunflower: #FED566;
+            --pond: #51839B;
+            --cream: #F7EFDB;
+            --stone: #3D4B58;
+            --sage: #8EA05D;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--stone);
+            line-height: 1.7;
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--stone);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(247, 239, 219, 0.96);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 12px;
+        }
+        
+        .logo-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sage);
+        }
+        
+        .logo-tagline {
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.7rem;
+            color: var(--pond);
+            margin-top: 2px;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--stone);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        nav a.active {
+            color: var(--sage);
+        }
+        
+        nav a.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--sage);
+        }
+        
+        nav a:hover {
+            color: var(--sage);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage);
+            transition: var(--transition);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            background: var(--sage);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+        
+        .nav-cta:hover {
+            background: #7d8f4f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(142, 160, 93, 0.3);
+        }
+        
+        .nav-cta:after {
+            display: none;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(61, 75, 88, 0.85), rgba(61, 75, 88, 0.85)), 
+                        url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            padding: 180px 0 100px;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .breadcrumb a {
+            color: var(--sunflower);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+            opacity: 0.7;
+        }
+        
+        /* Donation Section */
+        .donate {
+            padding: 100px 0;
+        }
+        
+        .donate-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .donate-content {
+            padding-right: 30px;
+        }
+        
+        .donate-content h2 {
+            font-size: 2.3rem;
+            margin-bottom: 30px;
+            color: var(--sage);
+        }
+        
+        .donate-content p {
+            margin-bottom: 25px;
+            color: var(--stone);
+            line-height: 1.8;
+        }
+        
+        .impact-list {
+            margin: 40px 0;
+        }
+        
+        .impact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .impact-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--sunflower);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .impact-icon svg {
+            width: 14px;
+            height: 14px;
+            color: var(--stone);
+        }
+        
+        .impact-text {
+            color: var(--stone);
+        }
+        
+        /* Donation Form */
+        .donation-form {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .donation-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--pond);
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--stone);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--sage);
+            box-shadow: 0 0 0 3px rgba(142, 160, 93, 0.2);
+        }
+        
+        .donation-amounts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .amount-option {
+            position: relative;
+        }
+        
+        .amount-option input {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .amount-option label {
+            display: block;
+            padding: 12px;
+            background: var(--cream);
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .amount-option input:checked + label {
+            background: var(--sunflower);
+            border-color: var(--sunflower);
+            color: var(--stone);
+        }
+        
+        .amount-option input:focus + label {
+            box-shadow: 0 0 0 3px rgba(254, 213, 102, 0.5);
+        }
+        
+        .custom-amount {
+            display: flex;
+            align-items: center;
+        }
+        
+        .custom-amount span {
+            margin-right: 10px;
+            font-weight: 600;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--sunflower);
+            color: var(--stone);
+            box-shadow: 0 5px 20px rgba(254, 213, 102, 0.3);
+            width: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(254, 213, 102, 0.4);
+        }
+        
+        /* Other Ways to Give */
+        .other-ways {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.3rem;
+            color: var(--stone);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--sage);
+        }
+        
+        .ways-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .way-card {
+            background: var(--cream);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .way-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .way-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--pond);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+        
+        .way-icon svg {
+            width: 36px;
+            height: 36px;
+            color: white;
+        }
+        
+        .way-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--pond);
+        }
+        
+        .way-card p {
+            color: var(--stone);
+            margin-bottom: 20px;
+        }
+        
+        .way-link {
+            color: var(--sage);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .way-link svg {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .way-link:hover {
+            color: var(--pond);
+        }
+        
+        .way-link:hover svg {
+            transform: translateX(5px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--stone);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+            color: var(--sunflower);
+        }
+        
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--sage);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--sunflower);
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--sunflower);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .footer-contact svg {
+            margin-right: 10px;
+            color: var(--sunflower);
+            min-width: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .copyright a {
+            color: var(--sunflower);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .donate-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .donate-content {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px 10px;
+            }
+            
+            .page-header {
+                padding: 150px 0 80px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .donation-amounts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .donate-content h2 {
+                font-size: 2rem;
+            }
+            
+            .donation-amounts {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-text {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <header>
-        <!-- (Same header as index.html with current page highlighted) -->
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50x50/8EA05D/FFFFFF?text=LFP" alt="Lexington Food Pantry">
+                <div class="logo-text">
+                    Lexington Food Pantry
+                    <span class="logo-tagline">Feeding Lexington every Saturday morning</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="get-help.html">Get Help</a></li>
+                    <li><a href="our-operations.html">Our Operations</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="donate.html" class="nav-cta active">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero" style="background-image: linear-gradient(rgba(81, 131, 155, 0.85), rgba(81, 131, 155, 0.85)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+    <!-- Page Header -->
+    <section class="page-header">
         <div class="container">
-            <div class="hero-content">
-                <h1>Donate</h1>
-                <p>Your support nourishes our community</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="donate.html">Donate</a>
             </div>
+            <h1>Support Our Mission</h1>
+            <p>Your donation helps provide nutritious food to Lexington families in need</p>
         </div>
     </section>
 
-    <section class="donation-options">
+    <!-- Donation Section -->
+    <section class="donate">
         <div class="container">
-            <div class="section-header">
-                <h2>Ways to Give</h2>
-                <p>Every contribution makes a difference</p>
-            </div>
-            
-            <div class="options-tabs">
-                <button class="tab-btn active" data-tab="financial">Financial</button>
-                <button class="tab-btn" data-tab="food">Food</button>
-                <button class="tab-btn" data-tab="other">Other</button>
-            </div>
-            
-            <div class="tab-content active" id="financial">
-                <div class="donation-cards">
-                    <div class="donation-card">
-                        <h3>One-Time Gift</h3>
-                        <div class="amount-options">
-                            <button class="amount-btn">$25</button>
-                            <button class="amount-btn">$50</button>
-                            <button class="amount-btn">$100</button>
-                            <div class="custom-amount">
+            <div class="donate-container">
+                <div class="donate-content">
+                    <h2>Your Gift Makes a Difference</h2>
+                    <p>Every dollar you donate helps us provide fresh, nutritious food to our neighbors facing food insecurity. With your support, we can continue to serve over 1,200 families each month with dignity and compassion.</p>
+                    
+                    <div class="impact-list">
+                        <div class="impact-item">
+                            <div class="impact-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <div class="impact-text">$25 provides a family with fresh produce for a week</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <div class="impact-text">$100 stocks our pantry with essential staples for a day</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="impact-text">$500 supports our home delivery program for seniors</div>
+                        </div>
+                    </div>
+                    
+                    <p>Lexington Food Pantry is a 501(c)(3) nonprofit organization. All donations are tax-deductible to the fullest extent allowed by law.</p>
+                </div>
+                
+                <div class="donation-form">
+                    <h3>Make a Donation</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Donation Amount</label>
+                            <div class="donation-amounts">
+                                <div class="amount-option">
+                                    <input type="radio" id="amount-25" name="amount" value="25">
+                                    <label for="amount-25">$25</label>
+                                </div>
+                                <div class="amount-option">
+                                    <input type="radio" id="amount-50" name="amount" value="50">
+                                    <label for="amount-50">$50</label>
+                                </div>
+                                <div class="amount-option">
+                                    <input type="radio" id="amount-100" name="amount" value="100">
+                                    <label for="amount-100">$100</label>
+                                </div>
+                                <div class="amount-option">
+                                    <input type="radio" id="amount-250" name="amount" value="250">
+                                    <label for="amount-250">$250</label>
+                                </div>
+                                <div class="amount-option">
+                                    <input type="radio" id="amount-500" name="amount" value="500">
+                                    <label for="amount-500">$500</label>
+                                </div>
+                                <div class="amount-option">
+                                    <input type="radio" id="amount-other" name="amount" value="other">
+                                    <label for="amount-other">Other</label>
+                                </div>
+                            </div>
+                            <div class="form-group custom-amount">
                                 <span>$</span>
-                                <input type="number" placeholder="Other amount">
+                                <input type="number" id="custom-amount" class="form-control" placeholder="Enter custom amount">
                             </div>
                         </div>
-                        <button class="btn btn-primary">Donate Now</button>
-                    </div>
-                    
-                    <div class="donation-card">
-                        <h3>Monthly Support</h3>
-                        <p>Sustain our work with automatic monthly giving</p>
-                        <div class="amount-options">
-                            <button class="amount-btn">$10/mo</button>
-                            <button class="amount-btn">$25/mo</button>
-                            <button class="amount-btn">$50/mo</button>
+                        <div class="form-group">
+                            <label for="message">Message (Optional)</label>
+                            <textarea id="message" class="form-control" rows="3"></textarea>
                         </div>
-                        <label class="recurring-checkbox">
-                            <input type="checkbox"> Make my donation recurring
-                        </label>
-                        <button class="btn btn-primary">Donate Monthly</button>
-                    </div>
-                </div>
-                
-                <div class="other-options">
-                    <h3>Other Financial Donations</h3>
-                    <div class="options-grid">
-                        <a href="#" class="option-card">
-                            <h4>Corporate Matching</h4>
-                            <p>Double your impact through employer matching</p>
-                        </a>
-                        <a href="#" class="option-card">
-                            <h4>Stock Donations</h4>
-                            <p>Donate appreciated securities</p>
-                        </a>
-                        <a href="#" class="option-card">
-                            <h4>Legacy Giving</h4>
-                            <p>Include LFP in your estate plans</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="food">
-                <div class="food-donation-grid">
-                    <div class="food-list">
-                        <h3>Most Needed Items</h3>
-                        <ul>
-                            <li>Fresh fruits & vegetables</li>
-                            <li>Canned proteins (tuna, chicken)</li>
-                            <li>Whole grain pasta/rice</li>
-                            <li>Peanut butter</li>
-                            <li>Low-sodium canned veggies</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="dropoff-info">
-                        <h3>Donation Hours</h3>
-                        <p><strong>Tuesdays & Thursdays:</strong> 9AM-12PM</p>
-                        <p><strong>Location:</strong> Rear entrance, 123 Main St</p>
-                        <a href="#" class="btn btn-secondary">Download Full List</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="other">
-                <div class="other-ways-grid">
-                    <div class="other-way-card">
-                        <h3>Amazon Wishlist</h3>
-                        <p>Purchase needed items directly from our curated list</p>
-                        <a href="#" class="btn btn-small">Shop Now</a>
-                    </div>
-                    
-                    <div class="other-way-card">
-                        <h3>Host a Food Drive</h3>
-                        <p>Organize a collection at your school or workplace</p>
-                        <a href="#" class="btn btn-small">Get Toolkit</a>
-                    </div>
-                    
-                    <div class="other-way-card">
-                        <h3>Corporate Partnership</h3>
-                        <p>Engage your company in hunger relief</p>
-                        <a href="#" class="btn btn-small">Learn More</a>
-                    </div>
+                        <button type="submit" class="btn btn-primary">Donate Now</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="impact-section">
+    <!-- Other Ways to Give -->
+    <section class="other-ways">
         <div class="container">
             <div class="section-header">
-                <h2>Your Impact</h2>
-                <p>How donations transform lives</p>
+                <h2>Other Ways to Give</h2>
+                <p>There are many ways to support our mission beyond monetary donations</p>
             </div>
-            
-            <div class="impact-grid">
-                <div class="impact-card">
-                    <div class="impact-number">$25</div>
-                    <div class="impact-description">Provides a week's worth of groceries for a senior</div>
+            <div class="ways-grid">
+                <div class="way-card">
+                    <div class="way-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                    </div>
+                    <h3>Food Drives</h3>
+                    <p>Organize a food drive at your workplace, school, or community group to collect non-perishable items.</p>
+                    <a href="#" class="way-link">
+                        Learn how to organize
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
                 </div>
-                <div class="impact-card">
-                    <div class="impact-number">$50</div>
-                    <div class="impact-description">Feeds a family of four for a week</div>
+                <div class="way-card">
+                    <div class="way-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3>Corporate Matching</h3>
+                    <p>Many employers will match your donation, doubling your impact. Check with your HR department.</p>
+                    <a href="#" class="way-link">
+                        Get matching info
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
                 </div>
-                <div class="impact-card">
-                    <div class="impact-number">$100</div>
-                    <div class="impact-description">Stocks our dairy section for a day</div>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-number">$500</div>
-                    <div class="impact-description">Fuels our delivery van for a month</div>
+                <div class="way-card">
+                    <div class="way-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Monthly Giving</h3>
+                    <p>Become a Sustainer by setting up recurring monthly donations for reliable, ongoing support.</p>
+                    <a href="#" class="way-link">
+                        Set up monthly gifts
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <!-- (Same footer as index.html) -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">Lexington Pantry</div>
+                    <p>Committed to ending hunger in Lexington through neighborly care, fresh food access, and community partnerships since 1982.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="get-help.html">Get Assistance</a></li>
+                        <li><a href="our-operations.html">Our Operations</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Nutrition Guides</a></li>
+                        <li><a href="#">Community Partners</a></li>
+                        <li><a href="#">Annual Report</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        123 Main Street, Lexington, MA 02420
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        (781) 555-1234
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        info@lexingtonpantry.org
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Saturdays: 8AM - 12PM
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Lexington Food Pantry. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </div>
+        </div>
     </footer>
-
-    <script>
-        // Tab functionality
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons and content
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding content
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.tab).classList.add('active');
-            });
-        });
-    </script>
 </body>
 </html>
