@@ -44,7 +44,7 @@
             padding: 0 20px;
         }
         
-        /* Navigation */
+        /* Organic Navigation */
         header {
             position: fixed;
             top: 0;
@@ -108,24 +108,6 @@
             transition: var(--transition);
         }
         
-        nav a.active {
-            color: var(--sage);
-        }
-        
-        nav a.active:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--sage);
-        }
-        
-        nav a:hover {
-            color: var(--sage);
-        }
-        
         nav a:after {
             content: '';
             position: absolute;
@@ -135,6 +117,10 @@
             height: 2px;
             background: var(--sage);
             transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--sage);
         }
         
         nav a:hover:after {
@@ -162,7 +148,7 @@
         /* Page Header */
         .page-header {
             background: linear-gradient(rgba(61, 75, 88, 0.85), rgba(61, 75, 88, 0.85)), 
-                        url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             padding: 180px 0 100px;
             text-align: center;
             color: white;
@@ -199,30 +185,32 @@
             opacity: 0.7;
         }
         
-        /* History Section */
-        .history {
+        /* About Content */
+        .about-content {
             padding: 100px 0;
         }
         
-        .history-container {
-            background: white;
-            border-radius: 10px;
-            padding: 60px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        .mission-section {
+            margin-bottom: 80px;
         }
         
-        .history h2 {
-            font-size: 2.3rem;
-            margin-bottom: 30px;
-            color: var(--sage);
+        .section-header {
             text-align: center;
-            position: relative;
+            margin-bottom: 60px;
         }
         
-        .history h2:after {
+        .section-header h2 {
+            font-size: 2.3rem;
+            color: var(--stone);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
@@ -230,72 +218,197 @@
             background: var(--sage);
         }
         
-        .history p {
-            margin-bottom: 25px;
+        .mission-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .mission-highlight {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin: 40px 0;
+            border-left: 4px solid var(--sage);
+        }
+        
+        .mission-highlight p {
+            font-style: italic;
+            font-size: 1.2rem;
             color: var(--stone);
+            text-align: center;
+            margin: 0;
+        }
+        
+        /* History Section */
+        .history-section {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .history-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .history-text {
+            flex: 1;
+        }
+        
+        .history-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .history-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .history-text h3 {
+            font-size: 1.8rem;
+            color: var(--sage);
+            margin-bottom: 25px;
+        }
+        
+        .history-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
             line-height: 1.8;
         }
         
-        .history-timeline {
+        /* Impact Stats */
+        .impact-stats {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
             margin-top: 50px;
         }
         
-        .timeline-item {
-            display: flex;
-            margin-bottom: 40px;
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
         }
         
-        .timeline-year {
-            flex: 0 0 120px;
-            font-family: 'Merriweather', serif;
-            font-size: 1.5rem;
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
             font-weight: 700;
-            color: var(--pond);
+            color: var(--sage);
+            margin-bottom: 15px;
+            font-family: 'Merriweather', serif;
         }
         
-        .timeline-content {
-            flex: 1;
-            padding-left: 30px;
-            border-left: 3px solid var(--sunflower);
-            position: relative;
-        }
-        
-        .timeline-content:before {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--sunflower);
-        }
-        
-        .timeline-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+        .stat-label {
+            font-size: 1.1rem;
             color: var(--stone);
+            font-weight: 600;
         }
         
-        /* Mission Section */
-        .mission {
+        /* Partners Section */
+        .partners {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .partner-logo {
+            background: var(--cream);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--stone);
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .partner-logo:hover {
             background: var(--sage);
             color: white;
-            padding: 80px 0;
+            transform: translateY(-3px);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(81, 131, 155, 0.9), rgba(81, 131, 155, 0.9)), 
+                        url('https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
             text-align: center;
         }
         
-        .mission h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: white;
+        .btn-primary {
+            background: var(--sunflower);
+            color: var(--stone);
+            box-shadow: 0 5px 20px rgba(254, 213, 102, 0.3);
         }
         
-        .mission p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 1.8;
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(254, 213, 102, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--pond);
+            transform: translateY(-5px);
         }
         
         /* Footer */
@@ -413,8 +526,13 @@
         
         /* Responsive */
         @media (max-width: 992px) {
-            .history-container {
-                padding: 40px;
+            .history-content {
+                flex-direction: column;
+            }
+            
+            .history-image {
+                order: -1;
+                margin-bottom: 30px;
             }
         }
         
@@ -441,17 +559,23 @@
                 font-size: 2.5rem;
             }
             
-            .timeline-item {
-                flex-direction: column;
-            }
-            
-            .timeline-year {
+            .btn {
+                display: block;
+                width: 100%;
                 margin-bottom: 15px;
             }
             
-            .timeline-content {
-                padding-left: 20px;
-                border-left: 2px solid var(--sunflower);
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .partner-logos {
+                gap: 15px;
+            }
+            
+            .partner-logo {
+                padding: 10px 15px;
+                font-size: 0.9rem;
             }
         }
         
@@ -460,22 +584,22 @@
                 font-size: 2rem;
             }
             
-            .history h2 {
+            .section-header h2 {
                 font-size: 2rem;
-            }
-            
-            .history-container {
-                padding: 30px 20px;
             }
             
             .logo-text {
                 font-size: 1.3rem;
             }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Organic Navigation -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -506,68 +630,144 @@
                 <span>/</span>
                 <a href="about.html">About Us</a>
             </div>
-            <h1>Our Story</h1>
-            <p>Filler</p>
+            <h1>About Lexington Food Pantry</h1>
+            <p>Learn about our mission, history, and the community we serve</p>
         </div>
     </section>
 
-    <!-- History Section -->
-    <section class="history">
+    <!-- About Content -->
+    <section class="about-content">
         <div class="container">
-            <div class="history-container">
-                <h2>Filler</h2>
-                <p>Filler</p>
-                
-                <p>Filler.</p>
-                
-                <div class="history-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">1990</div>
-                        <div class="timeline-content">
-                            <h3>History</h3>
-                            <p>Filler</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">1995</div>
-                        <div class="timeline-content">
-                            <h3>Filler</h3>
-                            <p>Filler.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2008</div>
-                        <div class="timeline-content">
-                            <h3>Community Partnership</h3>
-                            <p>Filler</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2015</div>
-                        <div class="timeline-content">
-                            <h3>Filler</h3>
-                            <p></p>Filler.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2020</div>
-                        <div class="timeline-content">
-                            <h3>Filler</h3>
-                            <p>Filler</p>
-                        </div>
-                    </div>
+            <div class="mission-section">
+                <div class="section-header">
+                    <h2>Our Mission</h2>
                 </div>
                 
-                <p>Filler</p>
+                <div class="mission-text">
+                    <p>The Lexington Food Pantry (LFP) is a completely volunteer-run organization dedicated to ensuring that all residents of Lexington have access to nutritious food and essential household products. Our mission is to support community members facing food insecurity, providing them not only with groceries but also with care, and a sense of belonging.</p>
+                    
+                    <p>Every Saturday morning from 9AM to 2:00 PM, our volunteers come together to serve over 200 families, carefully preparing and distributing orders that include staple groceries, fresh fruits and vegetables sourced from local farms, and household necessities.</p>
+                </div>
+                
+                <div class="mission-highlight">
+                    <p>"At LFP, we believe that access to healthy food is a fundamental right, and we strive to create a welcoming environment for everyone who walks through our doors."</p>
+                </div>
+                
+                <div class="mission-text">
+                    <p>Beyond simply providing food, we aim to foster connections within the community, offering support and resources to help families thrive. Our volunteers, who come from all walks of life, are the heart of our operations, ensuring that every client feels seen, respected, and cared for.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission">
+    <!-- History Section -->
+    <section class="history-section">
         <div class="container">
-            <h2>Our Mission</h2>
-            <p>Filler</p>
+            <div class="section-header">
+                <h2>Our History</h2>
+            </div>
+            
+            <div class="history-content">
+                <div class="history-text">
+                    <h3>From Humble Beginnings</h3>
+                    <p>The idea for the Lexington Food Pantry originated in the early 1990s when the Lexington Council of Churches formed a study group to assess the town's need for a food support program. The group's research confirmed that many residents could benefit from additional resources, and in November 1990, the Lexington Food Pantry was born.</p>
+                    
+                    <p>Initially, LFP operated out of a small basement room at the Church of Our Redeemer on 6 Meriam Street, serving a modest number of families with limited resources.</p>
+                    
+                    <p>Over the years, the pantry has grown significantly to meet the increasing needs of the community. Today, LFP serves over 1,000 individuals every week, with more than 200 families receiving carefully prepared food orders.</p>
+                    
+                    <p>This growth is a testament to the generosity and commitment of the Lexington community. We are deeply grateful for the ongoing support of local businesses, faith organizations, and community groups, who contribute both financially and through food donations.</p>
+                </div>
+                
+                <div class="history-image">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lexington Food Pantry History">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact-stats">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Impact</h2>
+                <p>Making a difference in the Lexington community since 1990</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Years of Service</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Families Served Weekly</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">1,000+</div>
+                    <div class="stat-label">Individuals Served Weekly</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Volunteer-Run</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Valued Partners</h2>
+                <p>We are grateful for the generous support from these organizations</p>
+            </div>
+            
+            <div class="partner-logos">
+                <div class="partner-logo">Stop and Shop</div>
+                <div class="partner-logo">When Pigs Fly</div>
+                <div class="partner-logo">Brueggers Bagels</div>
+                <div class="partner-logo">Wagon Wheel</div>
+                <div class="partner-logo">Wilson Farm</div>
+                <div class="partner-logo">Via Lago</div>
+                <div class="partner-logo">Foodlink</div>
+                <div class="partner-logo">LexEat Together</div>
+                <div class="partner-logo">LexFarm</div>
+                <div class="partner-logo">Lexington Interfaith Garden</div>
+                <div class="partner-logo">Boston Area Gleaners</div>
+                <div class="partner-logo">Cambridge Savings Bank</div>
+                <div class="partner-logo">CAAL</div>
+                <div class="partner-logo">CALex</div>
+                <div class="partner-logo">Church of Our Redeemer</div>
+                <div class="partner-logo">Community Endowment of Lexington</div>
+                <div class="partner-logo">CoNCERT Pharmaceuticals Inc.</div>
+                <div class="partner-logo">The Dana Home</div>
+                <div class="partner-logo">DCU</div>
+                <div class="partner-logo">Eastern Bank</div>
+                <div class="partner-logo">First Parish in Lexington</div>
+                <div class="partner-logo">Hancock Church</div>
+                <div class="partner-logo">Inn at Hastings Park</div>
+                <div class="partner-logo">KTBYTE</div>
+                <div class="partner-logo">LexArt</div>
+                <div class="partner-logo">Lexington MA Rotary Club</div>
+                <div class="partner-logo">Lexington Lions</div>
+                <div class="partner-logo">Music for Food</div>
+                <div class="partner-logo">William Raveis</div>
+                <div class="partner-logo">Winchester Co-operative Bank</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join Our Mission</h2>
+            <p>Whether you need assistance or want to help support our community, we welcome you to be part of the Lexington Food Pantry family.</p>
+            <a href="get-help.html" class="btn btn-primary">Get Assistance</a>
+            <a href="volunteer.html" class="btn btn-secondary">Volunteer With Us</a>
         </div>
     </section>
 
@@ -604,9 +804,9 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="get-help.html">Get Assistance</a></li>
                         <li><a href="our-operations.html">Our Operations</a></li>
+                        <li><a href="about.html">About Us</a></li>
                         <li><a href="volunteer.html">Volunteer</a></li>
                         <li><a href="donate.html">Donate</a></li>
-                        <li><a href="about.html">About Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
