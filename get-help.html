@@ -147,10 +147,10 @@
         
         /* Hero Section */
         .hero {
-            height: 60vh;
-            min-height: 500px;
+            height: 50vh;
+            min-height: 400px;
             background: linear-gradient(rgba(81, 131, 155, 0.85), rgba(81, 131, 155, 0.85)), 
-                        url('https://unsplash.com/photos/assorted-labeled-bottle-display-on-rack-BMnX7L9G5xc') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             position: relative;
@@ -170,25 +170,27 @@
         .hero h1 {
             font-size: 3rem;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: white;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
+        .hero-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            line-height: 1.4;
         }
         
-        /* Services Section */
-        .services {
+        /* Content Sections */
+        .content-section {
             padding: 80px 0;
-            background: var(--cream);
         }
         
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
         
         .section-header h2 {
@@ -210,53 +212,78 @@
             background: var(--sage);
         }
         
-        .section-header p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--stone);
-            opacity: 0.8;
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card {
+        .info-card {
             background: white;
             border-radius: 10px;
-            overflow: hidden;
+            padding: 40px;
+            margin-bottom: 40px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .service-content {
-            padding: 30px;
-        }
-        
-        .service-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+        .info-card h3 {
+            font-size: 1.8rem;
             color: var(--sage);
+            margin-bottom: 20px;
         }
         
-        .service-content p {
-            color: var(--stone);
+        .info-card p, .info-card ul {
             margin-bottom: 20px;
-            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .info-card ul {
+            list-style: none;
+        }
+        
+        .info-card li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .info-card li:before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            color: var(--sage);
+            font-weight: bold;
+        }
+        
+        .method-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .method-card h3 {
+            font-size: 1.5rem;
+            color: var(--pond);
+            margin-bottom: 15px;
+        }
+        
+        .method-card h4 {
+            font-size: 1.2rem;
+            color: var(--stone);
+            margin: 25px 0 15px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: var(--cream);
+            border-left: 4px solid var(--sunflower);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
         }
         
         .btn {
@@ -281,74 +308,73 @@
             box-shadow: 0 8px 25px rgba(254, 213, 102, 0.4);
         }
         
-        /* Info Section */
-        .info-section {
-            padding: 80px 0;
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            background: var(--cream);
+        }
+        
+        .faq-item {
             background: white;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .info-content h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--sage);
-        }
-        
-        .info-content ul {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .info-content li {
+            border-radius: 8px;
             margin-bottom: 15px;
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .info-content li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--sage);
-            font-weight: bold;
-        }
-        
-        .info-image {
-            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
-        .info-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Emergency Banner */
-        .emergency-banner {
-            background: var(--sunflower);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .emergency-banner h3 {
-            color: var(--stone);
-            margin-bottom: 10px;
-        }
-        
-        .emergency-banner p {
-            font-size: 1.2rem;
+        .faq-question {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
             font-weight: 600;
             color: var(--stone);
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            color: var(--sage);
+        }
+        
+        .faq-question:after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--pond);
+        }
+        
+        .faq-question.active:after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-answer.show {
+            padding: 0 25px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: var(--stone);
+            line-height: 1.8;
+        }
+        
+        /* Address Card */
+        .address-card {
+            background: var(--cream);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--sage);
+        }
+        
+        .address-card p {
+            margin: 5px 0;
         }
         
         /* Footer */
@@ -458,16 +484,6 @@
         }
         
         /* Responsive */
-        @media (max-width: 992px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .info-image {
-                order: -1;
-            }
-        }
-        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -492,8 +508,12 @@
                 font-size: 2.5rem;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .info-card {
+                padding: 25px;
             }
         }
     </style>
@@ -527,80 +547,177 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Food Assistance</h1>
-                <p>Serving Lexington Residents since 1990</p>
+                <p class="hero-subtitle">Serving Lexington Residents since 1990</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
+    <!-- What We Provide Section -->
+    <section class="content-section">
         <div class="container">
             <div class="section-header">
-                <h2>Filler</h2>
-                <p>Filler</p>
+                <h2>What We Provide</h2>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Filler</h3>
-                        <p>Filler</p>
-                        <div class="address-card" style="background: var(--cream); padding: 15px; border-radius: 8px; margin: 20px 0;">
-                            <p><strong>Lexington Food Pantry</strong><br>
-                            6 Meriam Street<br>
-                            Lexington, MA 02420</p>
-                        </div>
-                        <a href="#" class="btn btn-primary">View Map</a>
-                    </div>
+            <div class="info-card">
+                <p>Every Saturday we provide our clients with a weeks' worth of groceries, fresh produce, and household items (such as soap, toothpaste, paper towels, etc). We also provide diapers and baby products monthly per request.</p>
+                
+                <div class="address-card">
+                    <p><strong>Lexington Food Pantry</strong></p>
+                    <p>6 Meriam Street</p>
+                    <p>Lexington, MA 02420</p>
+                    <p>Saturdays: 9:30AM - 12PM</p>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Filler</h3>
-                        <ul style="list-style: none; margin-bottom: 20px;">
-                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✓ Filler</li>
-                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✓ Filler</li>
-                            <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">✓ Filler</li>
-                        </ul>
-                        <p style="font-style: italic; color: var(--pond);">Filler</p>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Filler</h3>
-                        <p>Filler</p>
-                        <p style="margin: 15px 0 25px;">Filler</p>
-                        <a href="#" class="btn btn-primary">Request Delivery</a>
-                    </div>
-                </div>
+                <a href="https://www.google.com/maps" class="btn btn-primary">View Location on Map</a>
             </div>
         </div>
     </section>
 
-    <!-- Info Section -->
-    <section class="info-section">
+    <!-- Eligibility Section -->
+    <section class="content-section" style="background: var(--cream);">
         <div class="container">
-            <div class="info-grid">
-                <div class="info-content">
-                    <h2>What To Expect</h2>
-                    <p style="margin-bottom: 20px;">Filler</p>
-                    
-                    <ul>
-                        <li>Filler</li>
-                        <li>Filler</li>
-                        <li>Filler</li>
-                        <li>Filler</li>
-                        <li>Filler</li>
-                        <li>Filler</li>
-                    </ul>
+            <div class="section-header">
+                <h2>Who Is Eligible</h2>
+            </div>
+            
+            <div class="info-card">
+                <p>Any Lexington Resident is eligible to order at the LFP. No proof of income is required. Bedford residents living on Hanscom Airforce Base are also eligible to receive groceries from the LFP.</p>
+                
+                <p>If you are not a resident of Lexington or Hanscom AFB, please refer to your local food pantries—which you can locate at <a href="https://www.gbfb.org/need-food/#googtrans(en|en)" target="_blank">Greater Boston Food Bank</a>.</p>
+                
+                <p>When you order, you will be asked for your home address to ensure eligibility. If you live in Lexington but do not have a permanent Lexington residential address, please speak to one of our volunteers or email us at <a href="mailto:lexfoodpantry@gmail.com">lexfoodpantry@gmail.com</a>.</p>
+                
+                <p>Also, if you live elsewhere, but have specific dietary needs that your local food pantry cannot accommodate for, please reach out to us via email, as we may be able to accommodate your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Ways to Get Food Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Three Ways to Get Food & Household Supplies</h2>
+            </div>
+            
+            <!-- Ordering Ahead -->
+            <div class="method-card">
+                <h3>1. Ordering Ahead</h3>
+                <p>Avoid the long wait! Choose your groceries from an online menu ahead of time and pick up your order on Saturday morning immediately!</p>
+                
+                <h4>Instructions:</h4>
+                <p>Fill out this online google form at this link by 10:00 AM on Friday, in order for us to prepare your groceries by Saturday morning.</p>
+                
+                <div class="highlight-box">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc09ZSHfzAw6GEPvmCGXrm5IYKb0NROH5hqCZZCfVv5B93cjA/viewform" class="btn btn-primary" target="_blank">Online Order Form</a>
                 </div>
                 
-                <div class="info-image">
-                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Food selection at pantry">
+                <p>The form will give you an option to choose what time you want to pick up your order at. Possible time slots are:</p>
+                <ul>
+                    <li>9:30-9:50</li>
+                    <li>9:50-10:10</li>
+                    <li>10:10-10:30</li>
+                    <li>10:30-10:50</li>
+                    <li>10:50-11:10</li>
+                    <li>11:10-11:30</li>
+                    <li>11:30-11:50</li>
+                    <li>11:50-12:30</li>
+                </ul>
+                
+                <p>On Saturday, come to the LFP during or after your chosen time slot, and we will have your order ready for you. Check in with the coordinator at the door, and one of our volunteers will bring your order to you!</p>
+                
+                <p><strong>Note:</strong> If you ordered online but cannot come to pick up your order on Saturday morning, please let us know as soon as possible so that we can properly allocate the food to other clients. If you fail to notify us of your cancellation, we will not begin making your future orders until you have arrived at the LFP.</p>
+            </div>
+            
+            <!-- Walk-In Ordering -->
+            <div class="method-card">
+                <h3>2. Walk-In Ordering</h3>
+                <p>Order groceries at the door and pick them up within 45 minutes!</p>
+                
+                <h4>Instructions:</h4>
+                <p>Come to the LFP on Saturday Morning (Between 9:30 AM and 12PM) and pick up a menu in your preferred language—we have English, Mandarin, Spanish, Haitian Creole menus! Fill out the menu with the provided pens, and hand it to the coordinator at the door.</p>
+                
+                <p>Generally, your order will take around 15-30 minutes to be completed, but may take up to 45-60 mins on a very busy day.</p>
+                
+                <p>We kindly request that you stay at the LFP, or in our parking lot during the waiting period, as we may not have enough space to store your order for too long. Please inform us if you will leave the LFP and return to pick up your order at a later time.</p>
+            </div>
+            
+            <!-- Delivery -->
+            <div class="method-card">
+                <h3>3. Delivery</h3>
+                <p>Have groceries delivered right to your home!</p>
+                
+                <h4>Instructions:</h4>
+                <p>We may be able to deliver groceries to your residence. If you are unable to come to the LFP to pick up your order on Saturday Morning, please fill out the online form, and email us in advance to request a delivery directly to your house on Saturday afternoon. We may or may not be able to accommodate this request depending on the number of delivery drivers volunteering with us each week.</p>
+                
+                <a href="mailto:lexfoodpantry@gmail.com" class="btn btn-primary">Request Delivery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diaper Day Section -->
+    <section class="content-section" style="background: var(--cream);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Monthly Diaper Day</h2>
+            </div>
+            
+            <div class="info-card">
+                <p>For families with infants and young children, we also provide diapers and various baby products once a month (Baby wipes, powder, food, etc.).</p>
+                
+                <p>If you would like to receive these baby supplies, please see the coordinator at the door. They will ask for your name, phone number, and the size of diapers you need.</p>
+                
+                <p>The week before our monthly diaper day, you should receive a text asking you to confirm your need for baby supplies. Please make sure to respond to the text message, otherwise you may not receive the proper (or any) supplies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">I live in Lexington, but I don't have a home address, can I still order from the LFP?</div>
+                <div class="faq-answer">
+                    <p>Yes you can! Anyone living in Lexington may use our services. If you have any additional needs or requests, please don't hesitate to email or call us at <a href="mailto:lexfoodpantry@gmail.com">lexfoodpantry@gmail.com</a> or <a href="tel:781-861-5060">781-861-5060</a>.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">I don't live in Lexington, can I order from the LFP?</div>
+                <div class="faq-answer">
+                    <p>The LFP only serves Lexington and Hanscom AFB residents at this time. However, if you have specific dietary restrictions that your local food pantry cannot accommodate for, please let us know, and we will do our best to accommodate your needs, or direct you to somewhere local that can!</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What time is the LFP open?</div>
+                <div class="faq-answer">
+                    <p>We are open on Saturdays from 9:30 AM to 12PM.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What if I ordered online but can't come to pick it up?</div>
+                <div class="faq-answer">
+                    <p>Please email/call the LFP as soon as you can. You can either cancel your order, or request for it to be delivered to your residence.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">I forgot to cancel my online order, does this mean I can't order from the LFP again?</div>
+                <div class="faq-answer">
+                    <p>You can absolutely order again, but in order for us to eliminate as much food waste as we can, we may not prepare your order until you arrive at the LFP. Please check in with the coordinator at the door when you arrive.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do deliveries work?</div>
+                <div class="faq-answer">
+                    <p>E-mail us in advance to request a delivery directly to your house on Saturday afternoon. We may or may not be able to accommodate this request depending on the number of delivery drivers volunteering with us each week.</p>
                 </div>
             </div>
         </div>
@@ -691,5 +808,24 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                question.classList.toggle('active');
+                answer.classList.toggle('show');
+                
+                // Close other open FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    if (q !== question && q.classList.contains('active')) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
