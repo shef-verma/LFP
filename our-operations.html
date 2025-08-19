@@ -4,915 +4,302 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Operations | Lexington Food Pantry</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --sunflower: #FED566;
-            --pond: #51839B;
-            --cream: #F7EFDB;
-            --stone: #3D4B58;
-            --sage: #8EA05D;
-            --transition: all 0.3s ease;
-        }
-        
+        /* Reset some default styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
         body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--stone);
-            line-height: 1.7;
-            background-color: var(--cream);
-            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
         }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Merriweather', serif;
-            font-weight: 700;
-            color: var(--stone);
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Organic Navigation */
+
+        /* Header */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(247, 239, 219, 0.96);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            background-color: #8EA05D;
+            color: white;
             z-index: 1000;
-            padding: 15px 0;
-            transition: var(--transition);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
         .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 20px;
         }
-        
         .logo {
             display: flex;
             align-items: center;
         }
-        
         .logo img {
+            width: 50px;
             height: 50px;
-            margin-right: 12px;
+            margin-right: 10px;
         }
-        
         .logo-text {
-            font-family: 'Merriweather', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--sage);
+            font-size: 1.2rem;
+            font-weight: bold;
         }
-        
         .logo-tagline {
             display: block;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 0.7rem;
-            color: var(--pond);
-            margin-top: 2px;
-            letter-spacing: 0.5px;
+            font-size: 0.8rem;
+            font-weight: normal;
         }
-        
         nav ul {
-            display: flex;
             list-style: none;
+            display: flex;
         }
-        
         nav li {
-            margin-left: 25px;
-            position: relative;
+            margin-left: 20px;
         }
-        
         nav a {
-            text-decoration: none;
-            color: var(--stone);
-            font-weight: 600;
-            font-size: 1rem;
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
-        }
-        
-        nav a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--sage);
-            transition: var(--transition);
-        }
-        
-        nav a:hover {
-            color: var(--sage);
-        }
-        
-        nav a:hover:after {
-            width: 100%;
-        }
-        
-        .nav-cta {
-            background: var(--sage);
-            color: white !important;
-            padding: 8px 20px;
-            border-radius: 30px;
-            transition: var(--transition);
-        }
-        
-        .nav-cta:hover {
-            background: #7d8f4f;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(142, 160, 93, 0.3);
-        }
-        
-        .nav-cta:after {
-            display: none;
-        }
-        
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(rgba(61, 75, 88, 0.85), rgba(61, 75, 88, 0.85)), 
-                        url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            padding: 180px 0 100px;
-            text-align: center;
             color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background 0.3s, color 0.3s;
+        }
+        nav a:hover, nav .nav-cta {
+            background-color: #f4f4f4;
+            color: #8EA05D;
+            border-radius: 4px;
+        }
+
+        /* Hero Section */
+        .hero {
             margin-top: 80px;
-        }
-        
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-        
-        .page-header p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-        
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .breadcrumb a {
-            color: var(--sunflower);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .breadcrumb span {
-            margin: 0 10px;
-            opacity: 0.7;
-        }
-        
-        /* Operations Section */
-        .operations {
-            padding: 100px 0;
-        }
-        
-        .section-header {
+            background-color: #dbe8c3;
             text-align: center;
-            margin-bottom: 60px;
+            padding: 60px 20px;
         }
-        
-        .section-header h2 {
-            font-size: 2.3rem;
-            color: var(--stone);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-header h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--sage);
-        }
-        
-        .section-header p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--stone);
-            opacity: 0.8;
-        }
-        
-        .operation-card {
-            display: flex;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            margin-bottom: 50px;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .operation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .operation-img {
-            flex: 1;
-            min-height: 400px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .operation-content {
-            flex: 1;
-            padding: 50px;
-        }
-        
-        .operation-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--sage);
-        }
-        
-        .operation-content p {
-            margin-bottom: 25px;
-            color: var(--stone);
-            opacity: 0.9;
-        }
-        
-        .operation-features {
-            margin: 30px 0;
-        }
-        
-        .feature-item {
-            display: flex;
-            margin-bottom: 15px;
-        }
-        
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--sunflower);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .feature-icon svg {
-            width: 14px;
-            height: 14px;
-            color: var(--stone);
-        }
-        
-        .feature-text {
-            color: var(--stone);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: var(--transition);
-            text-align: center;
-        }
-        
-        .btn-primary {
-            background: var(--sunflower);
-            color: var(--stone);
-            box-shadow: 0 5px 20px rgba(254, 213, 102, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(254, 213, 102, 0.4);
-        }
-        
-        /* Process Section */
-        .process {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .step {
-            text-align: center;
-            padding: 30px;
-            position: relative;
-        }
-        
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: var(--sage);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 25px;
-            font-family: 'Merriweather', serif;
-        }
-        
-        .step h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--sage);
-        }
-        
-        .step p {
-            color: var(--stone);
-            opacity: 0.9;
-        }
-        
-        /* Partners Section */
-        .partners {
-            padding: 100px 0;
-            background: var(--cream);
-        }
-        
-        .partner-logos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin-top: 50px;
-        }
-        
-        .partner-logo {
-            max-width: 180px;
-            height: auto;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: var(--transition);
-        }
-        
-        .partner-logo:hover {
-            filter: grayscale(0);
-            opacity: 1;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(rgba(81, 131, 155, 0.9), rgba(81, 131, 155, 0.9)), 
-                        url('https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            text-align: center;
-            color: white;
-        }
-        
-        .cta-section h2 {
+        .hero h1 {
             font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: white;
+            margin-bottom: 10px;
         }
-        
-        .cta-section p {
-            max-width: 700px;
-            margin: 0 auto 40px;
+        .hero p {
             font-size: 1.2rem;
-            opacity: 0.9;
         }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            margin-left: 15px;
+
+        /* Container for sections */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        
-        .btn-secondary:hover {
+
+        /* Section Titles */
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #5c6b3c;
+        }
+
+        /* Workflow cards */
+        .workflow-item {
             background: white;
-            color: var(--pond);
-            transform: translateY(-5px);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        
+        .workflow-item h3 {
+            margin-bottom: 10px;
+            color: #8EA05D;
+        }
+
+        /* Supporters list */
+        .supporters-list {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
         /* Footer */
         footer {
-            background: var(--stone);
+            background-color: #333;
             color: white;
-            padding: 80px 0 30px;
+            padding: 40px 20px 20px 20px;
         }
-        
         .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
+        .footer-about, .footer-links {
+            flex: 1 1 250px;
+            margin: 10px;
+        }
         .footer-logo {
-            font-family: 'Merriweather', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: inline-block;
-            color: var(--sunflower);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
-        
-        .footer-about p {
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-        
-        .social-link:hover {
-            background: var(--sage);
-            transform: translateY(-3px);
-        }
-        
-        .footer-links h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-            color: var(--sunflower);
-        }
-        
-        .footer-links h3:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--sunflower);
-        }
-        
         .footer-links ul {
             list-style: none;
         }
-        
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
-        
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-        }
-        
-        .footer-links a:hover {
             color: white;
-            transform: translateX(5px);
-        }
-        
-        .footer-contact p {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-        
-        .footer-contact svg {
-            margin-right: 10px;
-            color: var(--sunflower);
-            min-width: 20px;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-        
-        .copyright a {
-            color: var(--sunflower);
             text-decoration: none;
         }
-        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
         /* Responsive */
-        @media (max-width: 992px) {
-            .operation-card {
-                flex-direction: column;
-            }
-            
-            .operation-img {
-                min-height: 300px;
-            }
-        }
-        
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-            
             nav ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
+                background-color: #8EA05D;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                display: none;
             }
-            
+            nav ul.active {
+                display: flex;
+            }
             nav li {
-                margin: 0 10px 10px;
-            }
-            
-            .page-header {
-                padding: 150px 0 80px;
-            }
-            
-            .page-header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .operation-content {
-                padding: 30px;
-            }
-            
-            .btn {
-                display: block;
-                width: 100%;
-                margin-bottom: 15px;
-            }
-            
-            .btn-secondary {
-                margin-left: 0;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .page-header h1 {
-                font-size: 2rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            
-            .logo-text {
-                font-size: 1.3rem;
-            }
-            
-            .partner-logos {
-                gap: 20px;
-            }
-            
-            .partner-logo {
-                max-width: 120px;
+                margin: 10px 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Organic Navigation -->
+
+    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
                 <img src="https://via.placeholder.com/50x50/8EA05D/FFFFFF?text=LFP" alt="Lexington Food Pantry">
                 <div class="logo-text">
                     Lexington Food Pantry
-                    <span class="logo-tagline">Feeding Lexington every Saturday morning</span>
+                    <span class="logo-tagline">Feeding Lexington Since 1990</span>
                 </div>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="get-help.html">Get Help</a></li>
-                    <li><a href="our-operations.html" class="active">Our Operations</a></li>
+                    <li><a href="our-operations.html" class="nav-cta">Our Operations</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="volunteer.html">Volunteer</a></li>
-                    <li><a href="donate.html" class="nav-cta">Donate</a></li>
+                    <li><a href="donate.html">Donate</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Our Operations</h1>
+        <p>How We Prepare and Deliver Groceries to the Lexington Community</p>
+    </section>
+
+    <!-- About -->
+    <section class="operations-about">
         <div class="container">
-            <div class="breadcrumb">
-                <a href="index.html">Home</a>
-                <span>/</span>
-                <a href="our-operations.html">Our Operations</a>
-            </div>
-            <h1>How We Operate</h1>
-            <p>Filler.</p>
+            <h2>About the Lexington Food Pantry</h2>
+            <p>The Lexington Food Pantry is a completely volunteer-run organization operating out of the Church of Our Redeemer at 6 Meriam St. in Lexington, Massachusetts. We utilize both the church’s basement and ground floor to prepare and distribute groceries to our community.</p>
         </div>
     </section>
 
-    <!-- Operations Section -->
-    <section class="operations">
+    <!-- Workflow -->
+    <section class="operations-workflow">
         <div class="container">
-            <div class="section-header">
-                <h2>Filler</h2>
-                <p>Filler.</p>
+            <h2>Our Workflow</h2>
+            <div class="workflow-item">
+                <h3>Walk-In Orders</h3>
+                <p>When you arrive and provide your menu to the coordinator, your name and order are recorded and sent to our basement team. This team gathers all requested fresh produce, groceries, and household items, carefully packaging them into a cart. The order is then passed to our ground team, made up entirely of dedicated Lexington High School volunteers, who either hand-deliver your order directly to you or place it in your car for easy pickup.</p>
             </div>
-            
-            <div class="operation-card">
-                <div class="operation-img" style="background-image: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="operation-content">
-                    <h3>Filler</h3>
-                    <p>Filler</p>
-                    
-                    <div class="operation-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                </svg>
-                            </div>
-                            <div class="feature-text">Filler</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                                </svg>
-                            </div>
-                            <div class="feature-text">Filler</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <div class="feature-text">Filler</div>
-                        </div>
-                    </div>
-                    
-                    <a href="get-help.html" class="btn btn-primary">Learn How to Access Services</a>
-                </div>
+            <div class="workflow-item">
+                <h3>Online Orders</h3>
+                <p>Online orders follow a similar process—except when you arrive, your order is already prepared and ready for pickup on our ground floor.</p>
             </div>
-            
-            <div class="operation-card">
-                <div class="operation-img" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="operation-content">
-                    <h3>Home Delivery</h3>
-                    <p>For homebound residents and those with mobility challenges, our volunteer drivers deliver pre-packed bags of groceries directly to their doors.</p>
-                    
-                    <div class="operation-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M3 12h18M12 3v18M7 7l10 10M7 17l10-10"></path>
-                                </svg>
-                            </div>
-                            <div class="feature-text">Filler</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                                </svg>
-                            </div>
-                            <div class="feature-text">Filler</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <div class="feature-text">Filler</div>
-                        </div>
-                    </div>
-                    
-                    <a href="volunteer.html" class="btn btn-primary">Become a Delivery Volunteer</a>
-                </div>
-            </div>
-            
-            <div class="operation-card">
-                <div class="operation-img" style="background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="operation-content">
-                    <h3>Filler</h3>
-                    <p>Filler</p>
-                    
-                    <div class="operation-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                </svg>
-                            </div>
-                            <div class="feature-text">Filler</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                                </svg>
-                            </div>
-                            <div class="feature-text">Filler</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <div class="feature-text">Filler</div>
-                        </div>
-                    </div>
-                    
-                    <a href="volunteer.html" class="btn btn-primary">Filler</a>
-                </div>
+            <div class="workflow-item">
+                <h3>Timing</h3>
+                <p>Depending on the number of orders and volunteers on a given day, this process typically takes 15–45 minutes. On average, we prepare and distribute over 1,000 bags of groceries each week, serving more than 200 families!</p>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process">
+    <!-- Closures -->
+    <section class="operations-closures">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Food Distribution Process</h2>
-                <p>Filler</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Filler</h3>
-                    <p>Filler</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Filler</h3>
-                    <p>Filler</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Filler</h3>
-                    <p>Filler</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Filler</h3>
-                    <p>Filler</p>
-                </div>
-            </div>
+            <h2>Closures</h2>
+            <p>The LFP is closed for all major holidays. Please check our online ordering form each week for updates. One week prior to any planned closure, we provide gift cards with a monetary value proportional to your family size to ensure your grocery needs are met during that week.</p>
         </div>
     </section>
 
-    <!-- Partners Section -->
-    <section class="partners">
+    <!-- Extreme Weather -->
+    <section class="operations-weather">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Partners</h2>
-                <p>Filler</p>
-            </div>
-            
-            <div class="partner-logos">
-                <img src="https://via.placeholder.com/180x80/3D4B58/FFFFFF?text=Local+Farm" alt="Local Farm" class="partner-logo">
-                <img src="https://via.placeholder.com/180x80/3D4B58/FFFFFF?text=Lexington+Bank" alt="Lexington Bank" class="partner-logo">
-                <img src="https://via.placeholder.com/180x80/3D4B58/FFFFFF?text=Grocery+Chain" alt="Grocery Chain" class="partner-logo">
-                <img src="https://via.placeholder.com/180x80/3D4B58/FFFFFF?text=City+Government" alt="City Government" class="partner-logo">
-                <img src="https://via.placeholder.com/180x80/3D4B58/FFFFFF?text=Food+Bank" alt="Regional Food Bank" class="partner-logo">
-            </div>
+            <h2>Extreme Weather</h2>
+            <p>Menus and order sheets are typically located outside the food pantry doors. During rain or snow, all menus will be kept inside with the coordinator and provided upon request. We kindly ask that clients remain in their cars if possible, as volunteers need the ground floor space to move groceries and carts between the parking lot and basement. If necessary, a side room will be opened for clients to wait while their orders are prepared.</p>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Supporters -->
+    <section class="operations-supporters">
         <div class="container">
-            <h2>Filler</h2>
-            <p>Filler</p>
-            <a href="get-help.html" class="btn btn-primary">Get Assistance</a>
-            <a href="volunteer.html" class="btn btn-secondary">Volunteer With Us</a>
+            <h2>Our Supporters</h2>
+            <p>We are incredibly grateful for the generous support we receive from local businesses and organizations. Their contributions help us provide fresh, nutritious groceries to the families we serve. Some of our partners include:</p>
+            <ul class="supporters-list">
+                <li>Stop & Shop</li>
+                <li>When Pigs Fly</li>
+                <li>Bruegger’s Bagels</li>
+                <li>Wagon Wheel</li>
+                <li>Wilson Farm</li>
+                <li>Via Lago</li>
+                <li>FoodLink</li>
+                <li>LexEat Together</li>
+                <li>LexFarm</li>
+                <li>Lexington Interfaith Garden</li>
+                <li>Boston Area Gleaners</li>
+            </ul>
+            <p>Thanks to their ongoing donations, we are able to make a meaningful impact in our community every week.</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <div class="footer-logo">Lexington Pantry</div>
-                    <p>Committed to serving Lexington Residents since 1990.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="get-help.html">Get Assistance</a></li>
-                        <li><a href="our-operations.html">Our Operations</a></li>
-                        <li><a href="volunteer.html">Volunteer</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Community Partners</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <p>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        6 Meriam Street, Lexington, MA 02420
-                    </p>
-                    <p>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        (781) 861-5060
-                    </p>
-                    <p>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        lexfoodpantry@gmail.com
-                    </p>
-                    <p>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                        Saturdays: 9:30AM - 12PM
-                    </p>
-                </div>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo">Lexington Food Pantry</div>
+                <p>Feeding the Lexington community with the support of volunteers and generous donors.</p>
             </div>
-            <div class="copyright">
-                &copy; 2023 Lexington Food Pantry. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Policies</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
             </div>
         </div>
+        <p class="footer-bottom">&copy; 2025 Lexington Food Pantry. All Rights Reserved.</p>
     </footer>
+
 </body>
 </html>
+
