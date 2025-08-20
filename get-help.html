@@ -170,6 +170,7 @@
         }
         
         .page-nav-links {
+
             display: flex;
             gap: 15px;
         }
@@ -356,6 +357,30 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(254, 213, 102, 0.4);
         }
+
+        /* Resources grid */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            padding: 24px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .resource-card h3 {
+            font-size: 1.1rem;
+            color: var(--pond);
+            margin-bottom: 10px;
+        }
+        .resource-card p {
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+   
         
         /* FAQ Section */
         .faq-section {
@@ -621,6 +646,7 @@
                 <a href="#eligibility" class="page-nav-link">Eligibility</a>
                 <a href="#how-to-get-food" class="page-nav-link">How to Get Food</a>
                 <a href="#diaper-day" class="page-nav-link">Diaper Day</a>
+                <a href="#resources" class="page-nav-link">Resources</a>
                 <a href="#faq" class="page-nav-link">FAQ</a>
             </div>
         </div>
