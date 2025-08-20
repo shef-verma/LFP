@@ -148,7 +148,7 @@
         /* Page Header */
         .page-header {
             background: linear-gradient(rgba(61, 75, 88, 0.85), rgba(61, 75, 88, 0.85)), 
-                        url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             padding: 180px 0 100px;
             text-align: center;
             color: white;
@@ -222,6 +222,9 @@
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .mission-highlight {
@@ -229,8 +232,9 @@
             border-radius: 10px;
             padding: 40px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            margin: 40px 0;
+            margin: 40px auto;
             border-left: 4px solid var(--sage);
+            max-width: 900px;
         }
         
         .mission-highlight p {
@@ -248,32 +252,15 @@
         }
         
         .history-content {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .history-text {
-            flex: 1;
-        }
-        
-        .history-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .history-image img {
-            width: 100%;
-            height: auto;
-            display: block;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .history-text h3 {
             font-size: 1.8rem;
             color: var(--sage);
             margin-bottom: 25px;
+            text-align: center;
         }
         
         .history-text p {
@@ -293,6 +280,9 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .stat-item {
@@ -329,36 +319,32 @@
             background: white;
         }
         
-        .partner-logos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin-top: 50px;
+        .partner-list {
+            max-width: 900px;
+            margin: 50px auto 0;
+            columns: 3;
+            column-gap: 30px;
         }
         
-        .partner-logo {
+        .partner-item {
+            break-inside: avoid;
+            margin-bottom: 15px;
+            padding: 10px 15px;
             background: var(--cream);
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-weight: 600;
-            color: var(--stone);
+            border-radius: 5px;
             transition: var(--transition);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
-        .partner-logo:hover {
+        .partner-item:hover {
             background: var(--sage);
             color: white;
-            transform: translateY(-3px);
         }
         
         /* CTA Section */
         .cta-section {
             padding: 100px 0;
             background: linear-gradient(rgba(81, 131, 155, 0.9), rgba(81, 131, 155, 0.9)), 
-                        url('https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             text-align: center;
             color: white;
         }
@@ -526,13 +512,8 @@
         
         /* Responsive */
         @media (max-width: 992px) {
-            .history-content {
-                flex-direction: column;
-            }
-            
-            .history-image {
-                order: -1;
-                margin-bottom: 30px;
+            .partner-list {
+                columns: 2;
             }
         }
         
@@ -569,13 +550,8 @@
                 margin-left: 0;
             }
             
-            .partner-logos {
-                gap: 15px;
-            }
-            
-            .partner-logo {
-                padding: 10px 15px;
-                font-size: 0.9rem;
+            .partner-list {
+                columns: 1;
             }
         }
         
@@ -594,6 +570,14 @@
             
             .stat-number {
                 font-size: 2.5rem;
+            }
+            
+            .mission-highlight {
+                padding: 25px;
+            }
+            
+            .mission-highlight p {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -678,10 +662,6 @@
                     
                     <p>This growth is a testament to the generosity and commitment of the Lexington community. We are deeply grateful for the ongoing support of local businesses, faith organizations, and community groups, who contribute both financially and through food donations.</p>
                 </div>
-                
-                <div class="history-image">
-                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lexington Food Pantry History">
-                </div>
             </div>
         </div>
     </section>
@@ -726,37 +706,37 @@
                 <p>We are grateful for the generous support from these organizations</p>
             </div>
             
-            <div class="partner-logos">
-                <div class="partner-logo">Stop and Shop</div>
-                <div class="partner-logo">When Pigs Fly</div>
-                <div class="partner-logo">Brueggers Bagels</div>
-                <div class="partner-logo">Wagon Wheel</div>
-                <div class="partner-logo">Wilson Farm</div>
-                <div class="partner-logo">Via Lago</div>
-                <div class="partner-logo">Foodlink</div>
-                <div class="partner-logo">LexEat Together</div>
-                <div class="partner-logo">LexFarm</div>
-                <div class="partner-logo">Lexington Interfaith Garden</div>
-                <div class="partner-logo">Boston Area Gleaners</div>
-                <div class="partner-logo">Cambridge Savings Bank</div>
-                <div class="partner-logo">CAAL</div>
-                <div class="partner-logo">CALex</div>
-                <div class="partner-logo">Church of Our Redeemer</div>
-                <div class="partner-logo">Community Endowment of Lexington</div>
-                <div class="partner-logo">CoNCERT Pharmaceuticals Inc.</div>
-                <div class="partner-logo">The Dana Home</div>
-                <div class="partner-logo">DCU</div>
-                <div class="partner-logo">Eastern Bank</div>
-                <div class="partner-logo">First Parish in Lexington</div>
-                <div class="partner-logo">Hancock Church</div>
-                <div class="partner-logo">Inn at Hastings Park</div>
-                <div class="partner-logo">KTBYTE</div>
-                <div class="partner-logo">LexArt</div>
-                <div class="partner-logo">Lexington MA Rotary Club</div>
-                <div class="partner-logo">Lexington Lions</div>
-                <div class="partner-logo">Music for Food</div>
-                <div class="partner-logo">William Raveis</div>
-                <div class="partner-logo">Winchester Co-operative Bank</div>
+            <div class="partner-list">
+                <div class="partner-item">Stop and Shop</div>
+                <div class="partner-item">When Pigs Fly</div>
+                <div class="partner-item">Brueggers Bagels</div>
+                <div class="partner-item">Wagon Wheel</div>
+                <div class="partner-item">Wilson Farm</div>
+                <div class="partner-item">Via Lago</div>
+                <div class="partner-item">Foodlink</div>
+                <div class="partner-item">LexEat Together</div>
+                <div class="partner-item">LexFarm</div>
+                <div class="partner-item">Lexington Interfaith Garden</div>
+                <div class="partner-item">Boston Area Gleaners</div>
+                <div class="partner-item">Cambridge Savings Bank</div>
+                <div class="partner-item">CAAL</div>
+                <div class="partner-item">CALex</div>
+                <div class="partner-item">Church of Our Redeemer</div>
+                <div class="partner-item">Community Endowment of Lexington</div>
+                <div class="partner-item">CoNCERT Pharmaceuticals Inc.</div>
+                <div class="partner-item">The Dana Home</div>
+                <div class="partner-item">DCU</div>
+                <div class="partner-item">Eastern Bank</div>
+                <div class="partner-item">First Parish in Lexington</div>
+                <div class="partner-item">Hancock Church</div>
+                <div class="partner-item">Inn at Hastings Park</div>
+                <div class="partner-item">KTBYTE</div>
+                <div class="partner-item">LexArt</div>
+                <div class="partner-item">Lexington MA Rotary Club</div>
+                <div class="partner-item">Lexington Lions</div>
+                <div class="partner-item">Music for Food</div>
+                <div class="partner-item">William Raveis</div>
+                <div class="partner-item">Winchester Co-operative Bank</div>
             </div>
         </div>
     </section>
