@@ -44,7 +44,7 @@
             padding: 0 20px;
         }
         
-        /* Navigation */
+        /* Organic Navigation */
         header {
             position: fixed;
             top: 0;
@@ -108,24 +108,6 @@
             transition: var(--transition);
         }
         
-        nav a.active {
-            color: var(--sage);
-        }
-        
-        nav a.active:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--sage);
-        }
-        
-        nav a:hover {
-            color: var(--sage);
-        }
-        
         nav a:after {
             content: '';
             position: absolute;
@@ -135,6 +117,10 @@
             height: 2px;
             background: var(--sage);
             transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--sage);
         }
         
         nav a:hover:after {
@@ -162,7 +148,7 @@
         /* Page Header */
         .page-header {
             background: linear-gradient(rgba(61, 75, 88, 0.85), rgba(61, 75, 88, 0.85)), 
-                        url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             padding: 180px 0 100px;
             text-align: center;
             color: white;
@@ -199,181 +185,21 @@
             opacity: 0.7;
         }
         
-        /* Donation Section */
-        .donate {
-            padding: 100px 0;
+        /* Donation Intro */
+        .donation-intro {
+            padding: 80px 0;
+            text-align: center;
         }
         
-        .donate-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-        
-        .donate-content {
-            padding-right: 30px;
-        }
-        
-        .donate-content h2 {
-            font-size: 2.3rem;
-            margin-bottom: 30px;
-            color: var(--sage);
-        }
-        
-        .donate-content p {
-            margin-bottom: 25px;
-            color: var(--stone);
+        .donation-intro p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
             line-height: 1.8;
         }
         
-        .impact-list {
-            margin: 40px 0;
-        }
-        
-        .impact-item {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        
-        .impact-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--sunflower);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .impact-icon svg {
-            width: 14px;
-            height: 14px;
-            color: var(--stone);
-        }
-        
-        .impact-text {
-            color: var(--stone);
-        }
-        
-        /* Donation Form */
-        .donation-form {
-            background: white;
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .donation-form h3 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: var(--pond);
-            text-align: center;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--stone);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--sage);
-            box-shadow: 0 0 0 3px rgba(142, 160, 93, 0.2);
-        }
-        
-        .donation-amounts {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        
-        .amount-option {
-            position: relative;
-        }
-        
-        .amount-option input {
-            position: absolute;
-            opacity: 0;
-        }
-        
-        .amount-option label {
-            display: block;
-            padding: 12px;
-            background: var(--cream);
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .amount-option input:checked + label {
-            background: var(--sunflower);
-            border-color: var(--sunflower);
-            color: var(--stone);
-        }
-        
-        .amount-option input:focus + label {
-            box-shadow: 0 0 0 3px rgba(254, 213, 102, 0.5);
-        }
-        
-        .custom-amount {
-            display: flex;
-            align-items: center;
-        }
-        
-        .custom-amount span {
-            margin-right: 10px;
-            font-weight: 600;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: var(--transition);
-            text-align: center;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary {
-            background: var(--sunflower);
-            color: var(--stone);
-            box-shadow: 0 5px 20px rgba(254, 213, 102, 0.3);
-            width: 100%;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(254, 213, 102, 0.4);
-        }
-        
-        /* Other Ways to Give */
-        .other-ways {
+        /* Donation Options */
+        .donation-options {
             padding: 80px 0;
             background: white;
         }
@@ -402,72 +228,192 @@
             background: var(--sage);
         }
         
-        .ways-grid {
+        .options-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
         
-        .way-card {
+        .option-card {
             background: var(--cream);
             border-radius: 10px;
-            padding: 40px 30px;
-            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
         }
         
-        .way-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
         
-        .way-icon {
-            width: 80px;
-            height: 80px;
+        .option-header {
             background: var(--pond);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .option-header h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .option-content {
+            padding: 30px;
+        }
+        
+        .option-content ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .option-content li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .option-content li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 12px;
+            height: 12px;
+            background: var(--sunflower);
+            border-radius: 50%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .btn-primary {
+            background: var(--sunflower);
+            color: var(--stone);
+            box-shadow: 0 5px 20px rgba(254, 213, 102, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(254, 213, 102, 0.4);
+        }
+        
+        .btn-secondary {
+            background: var(--sage);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #7d8f4f;
+            transform: translateY(-5px);
+        }
+        
+        /* Needed Items */
+        .needed-items {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .item-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .item-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .item-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--sage);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
+            margin: 0 auto 15px;
         }
         
-        .way-icon svg {
-            width: 36px;
-            height: 36px;
+        .item-icon svg {
+            width: 30px;
+            height: 30px;
             color: white;
         }
         
-        .way-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--pond);
+        /* Impact Section */
+        .impact-section {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
         }
         
-        .way-card p {
-            color: var(--stone);
-            margin-bottom: 20px;
+        .impact-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
         }
         
-        .way-link {
+        .impact-stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--sage);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
+            margin-bottom: 10px;
+            font-family: 'Merriweather', serif;
         }
         
-        .way-link svg {
-            margin-left: 8px;
-            transition: var(--transition);
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--stone);
         }
         
-        .way-link:hover {
-            color: var(--pond);
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(81, 131, 155, 0.9), rgba(81, 131, 155, 0.9)), 
+                        url('https://images.unsplash.com/photo-1579202673506-ca846ce86e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            text-align: center;
+            color: white;
         }
         
-        .way-link:hover svg {
-            transform: translateX(5px);
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
         
         /* Footer */
@@ -584,17 +530,6 @@
         }
         
         /* Responsive */
-        @media (max-width: 992px) {
-            .donate-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .donate-content {
-                padding-right: 0;
-                margin-bottom: 50px;
-            }
-        }
-        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -618,8 +553,22 @@
                 font-size: 2.5rem;
             }
             
-            .donation-amounts {
-                grid-template-columns: repeat(2, 1fr);
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .impact-stats {
+                gap: 30px;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
             }
         }
         
@@ -628,22 +577,22 @@
                 font-size: 2rem;
             }
             
-            .donate-content h2 {
+            .section-header h2 {
                 font-size: 2rem;
-            }
-            
-            .donation-amounts {
-                grid-template-columns: 1fr;
             }
             
             .logo-text {
                 font-size: 1.3rem;
             }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Organic Navigation -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -660,7 +609,7 @@
                     <li><a href="our-operations.html">Our Operations</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="volunteer.html">Volunteer</a></li>
-                    <li><a href="donate.html" class="nav-cta active">Donate</a></li>
+                    <li><a href="donate.html" class="active nav-cta">Donate</a></li>
                 </ul>
             </nav>
         </div>
@@ -674,164 +623,237 @@
                 <span>/</span>
                 <a href="donate.html">Donate</a>
             </div>
-            <h1>Support Our Mission</h1>
-            <p>Your donation helps provide nutritious food to Lexington families in need</p>
+            <h1>Support the Lexington Food Pantry</h1>
+            <p>Your generosity helps us provide nutritious food to families in need throughout our community</p>
         </div>
     </section>
 
-    <!-- Donation Section -->
-    <section class="donate">
-        <div class="container">
-            <div class="donate-container">
-                <div class="donate-content">
-                    <h2>Your Donation Makes a Difference</h2>
-                    <p>Every dollar you donate helps us provide fresh, nutritious food to our neighbors facing food insecurity. With your support, we can continue to serve over 300 families each month.</p>
-                    
-                    <div class="impact-list">
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                </svg>
-                            </div>
-                            <div class="impact-text">Filler</div>
-                        </div>
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                                </svg>
-                            </div>
-                            <div class="impact-text">Filler</div>
-                        </div>
-                        <div class="impact-item">
-                            <div class="impact-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                            <div class="impact-text">Filler</div>
-                        </div>
-                    </div>
-                    
-                    <p>Lexington Food Pantry is a 501(c)(3) nonprofit organization. All donations are tax-deductible to the fullest extent allowed by law.</p>
-                </div>
-                
-                <div class="donation-form">
-                    <h3>Make a Donation</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Donation Amount</label>
-                            <div class="donation-amounts">
-                                <div class="amount-option">
-                                    <input type="radio" id="amount-25" name="amount" value="25">
-                                    <label for="amount-25">$25</label>
-                                </div>
-                                <div class="amount-option">
-                                    <input type="radio" id="amount-50" name="amount" value="50">
-                                    <label for="amount-50">$50</label>
-                                </div>
-                                <div class="amount-option">
-                                    <input type="radio" id="amount-100" name="amount" value="100">
-                                    <label for="amount-100">$100</label>
-                                </div>
-                                <div class="amount-option">
-                                    <input type="radio" id="amount-250" name="amount" value="250">
-                                    <label for="amount-250">$250</label>
-                                </div>
-                                <div class="amount-option">
-                                    <input type="radio" id="amount-500" name="amount" value="500">
-                                    <label for="amount-500">$500</label>
-                                </div>
-                                <div class="amount-option">
-                                    <input type="radio" id="amount-other" name="amount" value="other">
-                                    <label for="amount-other">Other</label>
-                                </div>
-                            </div>
-                            <div class="form-group custom-amount">
-                                <span>$</span>
-                                <input type="number" id="custom-amount" class="form-control" placeholder="Enter custom amount">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message (Optional)</label>
-                            <textarea id="message" class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Donate Now</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Other Ways to Give -->
-    <section class="other-ways">
+    <!-- Donation Intro -->
+    <section class="donation-intro">
         <div class="container">
             <div class="section-header">
-                <h2>Other Ways to Give</h2>
-                <p>There are many ways to support our mission beyond monetary donations</p>
+                <h2>Your Support Makes a Difference</h2>
             </div>
-            <div class="ways-grid">
-                <div class="way-card">
-                    <div class="way-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                            <line x1="6" y1="1" x2="6" y2="4"></line>
-                            <line x1="10" y1="1" x2="10" y2="4"></line>
-                            <line x1="14" y1="1" x2="14" y2="4"></line>
-                        </svg>
+            <p>The Lexington Food Pantry relies entirely on the generosity of our community. We are grateful for all forms of donations—whether it's food, household items, or monetary contributions, every donation helps us support Lexington families facing food insecurity.</p>
+            <p>While all donations are appreciated, monetary donations are especially powerful. Funds allow us to purchase the specific foods that our families need most, ensuring that every family receives nutritious and balanced groceries. Monetary donations give us flexibility, let us respond quickly to urgent needs, and maximize the impact of every dollar contributed. By donating funds, you are helping us sustain the pantry and continue to serve over 1,000 individuals every week.</p>
+        </div>
+    </section>
+
+    <!-- Donation Options -->
+    <section class="donation-options">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ways to Give</h2>
+            </div>
+            
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-header">
+                        <h3>Donate Money</h3>
+                        <p>Make a financial contribution</p>
                     </div>
-                    <h3>Filler</h3>
-                    <p>Filler.</p>
-                    <a href="#" class="way-link">
-                        Filler
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+                    <div class="option-content">
+                        <p>Making a monetary donation is quick, easy, and secure.</p>
+                        
+                        <h4>Online via PayPal:</h4>
+                        <a href="#" class="btn btn-primary">Donate Here</a>
+                        
+                        <h4>By Check:</h4>
+                        <p>Please make checks payable to:<br>
+                        <strong>Lexington Interfaith Food Pantry</strong><br>
+                        P.O. Box 635<br>
+                        Lexington, MA 02420</p>
+                        
+                        <p>Even a small contribution helps us provide essential groceries and household items to families who need them most.</p>
+                    </div>
                 </div>
-                <div class="way-card">
-                    <div class="way-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                        </svg>
+                
+                <div class="option-card">
+                    <div class="option-header">
+                        <h3>Donate Food</h3>
+                        <p>Drop off needed items</p>
                     </div>
-                    <h3>Filler</h3>
-                    <p>Filler</p>
-                    <a href="#" class="way-link">
-                        Filler
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-                <div class="way-card">
-                    <div class="way-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                        </svg>
+                    <div class="option-content">
+                        <p>We gladly accept non-perishable food items that are before their "use-by" date, as well as clean, grocery-sized paper bags.</p>
+                        
+                        <h4>Drop-off Locations:</h4>
+                        <ul>
+                            <li>Stop & Shop (Bedford Street, Lexington) – donation bin accessible during store hours</li>
+                            <li>Donation cabinet at Church of Our Redeemer</li>
+                        </ul>
+                        
+                        <h4>Amazon Wish List:</h4>
+                        <p>Order online and have items shipped directly to the pantry:</p>
+                        <a href="https://www.amazon.com/hz/wishlist/ls/1CWNI5OGXMG5G?ref_=wl_share" class="btn btn-secondary">View Our Wish List</a>
+                        
+                        <p>For large donations, please call 781-861-5060 or email lexfoodpantry@gmail.com to arrange a drop-off.</p>
                     </div>
-                    <h3>Filler</h3>
-                    <p>Filler</p>
-                    <a href="#" class="way-link">
-                        Filler
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Needed Items -->
+    <section class="needed-items">
+        <div class="container">
+            <div class="section-header">
+                <h2>Items We Always Need</h2>
+                <p>These are the most requested items at our pantry</p>
+            </div>
+            
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Baked Beans</h4>
+                    <p>16 oz</p>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Canned Fruit</h4>
+                    <p>Any size</p>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Canned Vegetables</h4>
+                    <p>15 oz</p>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Mac & Cheese</h4>
+                    <p>7.25 oz</p>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Pasta</h4>
+                    <p>1 lb box</p>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Pasta Sauce</h4>
+                    <p>18 or 24 oz</p>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Canned Tuna</h4>
+                    <p>5-7 oz</p>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Peanut Butter</h4>
+                    <p>16 oz</p>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Rice</h4>
+                    <p>Any variety</p>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                    </div>
+                    <h4>Toiletries</h4>
+                    <p>Personal care items</p>
+                </div>
+            </div>
+            
+            <div class="section-header" style="margin-top: 60px;">
+                <h3>Please Note</h3>
+                <p>We cannot accept vitamins, supplements, or medications of any kind.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Impact</h2>
+                <p>See how your donations make a difference in our community</p>
+            </div>
+            
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <div class="stat-number">1,000+</div>
+                    <div class="stat-label">Individuals Served Weekly</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Families Supported</div>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Years of Service</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Nourish Our Community</h2>
+            <p>Your support matters. Every donation, whether big or small, helps us continue our mission to provide groceries and household essentials to families in need throughout Lexington. By contributing today, you are helping nourish our community.</p>
+            <a href="#" class="btn btn-primary">Donate Now</a>
+            <a href="mailto:lexfoodpantry@gmail.com" class="btn btn-secondary">Contact Us</a>
         </div>
     </section>
 
