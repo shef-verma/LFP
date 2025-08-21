@@ -484,9 +484,56 @@
             .logo-text {
                 font-size: 1.3rem;
             }
+            .translate-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.translate-btn {
+  background: var(--cream);
+  color: var(--stone);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.translate-btn:hover {
+  background: var(--sunflower);
+  transform: translateY(-1px);
+}
+
         }
     </style>
 </head>
+    <!-- Load Google Translate widget -->
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'es,zh-CN,ht',   // Spanish, Mandarin (Simplified), Haitian Creole
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  // Trigger a translation by programmatically changing the widget's hidden select
+  function setLang(langCode) {
+    const combo = document.querySelector('.goog-te-combo');
+    if (!combo) {
+      // Widget not ready yet; try again shortly
+      setTimeout(() => setLang(langCode), 300);
+      return;
+    }
+    combo.value = langCode;
+    combo.dispatchEvent(new Event('change'));
+  }
+</script>
+
 <body>
     <!-- Organic Navigation -->
     <header>
@@ -509,6 +556,15 @@
                 </ul>
             </nav>
         </div>
+        <div class="translate-controls">
+  <button class="translate-btn" onclick="setLang('es')" aria-label="Translate page to Spanish">Español</button>
+  <button class="translate-btn" onclick="setLang('zh-CN')" aria-label="Translate page to Mandarin Chinese">中文</button>
+  <button class="translate-btn" onclick="setLang('ht')" aria-label="Translate page to Haitian Creole">Kreyòl Ayisyen</button>
+</div>
+
+<!-- Keep the native widget hidden; we’ll trigger it via JS -->
+<div id="google_translate_element" style="display:none;"></div>
+
     </header>
 
     <!-- Page Header -->
